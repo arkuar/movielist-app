@@ -12,6 +12,7 @@ module.exports = (env, argv) => {
       extensions: ['.tsx', '.ts', '.js']
     },
     output: {
+      clean: true,
       path: path.resolve(__dirname, 'build/dist')
     },
     module: {

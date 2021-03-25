@@ -5,11 +5,12 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "ts-node-dev index.ts",
-    "start-server": "node build/index.js",
+    "start": "node build/index.js",
     "lint": "eslint --ext .ts,.tsx .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-server": "tsc",
-    "build-client": "webpack --mode=production"
+    "build-client": "webpack --mode=production",
+    "build": "npm run build-server && npm run build-client"
   },
   "author": "",
   "license": "ISC",
