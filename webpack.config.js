@@ -1,19 +1,31 @@
 const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = (env, argv) => {
   const { mode } = argv
+
+  const devPlugins = mode === 'development'
+    ? [new webpack.HotModuleReplacementPlugin()]
+    : []
+
+  const devEntries = mode === 'development'
+  ? ['webpack-hot-middleware/client?http://localhost:8000']
+  : []
+
   return {
     mode,
     entry: [
-      './client'
+      './client',
+      ...devEntries
     ],
     resolve: {
       extensions: ['.tsx', '.ts', '.js']
     },
     output: {
       clean: true,
-      path: path.resolve(__dirname, 'build/dist')
+      path: path.resolve(__dirname, 'build/dist'),
+      publicPath: '/'
     },
     module: {
       rules: [
@@ -27,7 +39,8 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebPackPlugin({
         template: 'index.html'
-      })
+      }),
+      ...devPlugins
     ]
   }
 }

@@ -12,6 +12,10 @@
   },
   "rules": {
     "no-console": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "consistent-return": "off",
+    "global-require": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-use-before-define": [
       "error",

@@ -10,5 +10,6 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
+    "types": ["webpack-env"]
   }
 }
