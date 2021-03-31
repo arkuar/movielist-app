@@ -1,21 +1,8 @@
+import { Movie } from 'common/types';
 import React from 'react';
-import { Movie } from '../types';
 import ListItem from './ListItem';
 
-const movies: Movie[] = [
-  {
-    title: 'Godfather',
-    year: 1972,
-  },
-  {
-    title: 'Dark Knight',
-    year: 2008,
-  },
-  {
-    title: 'Pulp Fiction',
-    year: 1994,
-  },
-];
+const movies: Movie[] = [];
 
 const MovieList: React.FC = () => (
   <div className="flex flex-col items-center">

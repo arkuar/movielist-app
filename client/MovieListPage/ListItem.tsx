@@ -1,5 +1,5 @@
 import React from 'react';
-import { Movie } from '../types';
+import { Movie } from 'common/types';
 
 interface ListProps {
   movie: Movie
