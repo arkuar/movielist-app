@@ -1,29 +1,30 @@
-{
-  "env": {
+module.exports = {
+  env: {
     "browser": true,
     "es6": true
   },
-  "extends": [
+  extends: [
     "airbnb-typescript",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": [
+  plugins: [
     "react",
     "react-hooks",
     "@typescript-eslint"
   ],
-  "rules": {
+  rules: {
     "react/prop-types": "off"
   },
-  "settings": {
+  settings: {
     "react": {
       "pragma": "React",
       "version": "detect"
     }
   },
-  "parserOptions": {
+  parserOptions: {
+    "tsconfigRootDir": __dirname,
     "project": "tsconfig.json"
   }
 }

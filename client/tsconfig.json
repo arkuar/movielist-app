@@ -14,5 +14,6 @@
     "jsx": "react-jsx",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
-  }
+    "baseUrl": "../"
+  },
 }

@@ -11,9 +11,9 @@
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "types": ["webpack-env"],
-    "baseUrl": ".",
     "paths": {
-      "@root": ["."]
+      "@root": ["./"],
+      "@common/*": ["./common/*"]
     }
   }
 }

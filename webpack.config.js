@@ -19,6 +19,7 @@ module.exports = (env, argv) => {
       './client',
       ...devEntries
     ],
+    target: ["web", "es6"],
     resolve: {
       extensions: ['.tsx', '.ts', '.js']
     },

@@ -1,4 +1,4 @@
-import { Movie } from 'common/types';
+import { Movie } from '@common/types';
 import { Request, Response } from 'express';
 
 const movies: Movie[] = [
