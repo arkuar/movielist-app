@@ -1,9 +1,23 @@
+import 'module-alias/register';
 import express from 'express';
 import path from 'path';
+import chokidar from 'chokidar';
 import { inDevelopment } from './common/config';
 
 const app = express();
 app.use(express.json());
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+app.use('/api', (req, res, next) => require('./server')(req, res, next));
+
+const watcher = chokidar.watch('server');
+watcher.on('ready', () => {
+  watcher.on('all', () => {
+    Object.keys(require.cache).forEach((id) => {
+      if (id.includes('server')) delete require.cache[id];
+    });
+  });
+});
 
 const PORT = 8000;
 const DIST_PATH = path.resolve(__dirname, './dist');
@@ -14,7 +28,7 @@ if (inDevelopment) {
   const webpack = require('webpack');
   const middleware = require('webpack-dev-middleware');
   const hotMiddleWare = require('webpack-hot-middleware');
-  const webpackConfig = require('./webpack.config.js');
+  const webpackConfig = require('@root/webpack.config.js');
   /* eslint-enable */
   const compiler = webpack(webpackConfig('development', { mode: 'development' }));
   app.use(middleware(compiler));

@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "tsc": "tsc",
-    "dev": "cross-env NODE_ENV=development ts-node-dev index.ts",
+    "dev": "concurrently \"tsc --watch\"  \"cross-env NODE_ENV=development nodemon build/index.js\"",
     "start": "node build/index.js",
     "lint": "eslint --ext .ts,.tsx .",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -37,11 +37,11 @@
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "nodemon": "^2.0.7",
     "postcss": "^8.2.9",
     "postcss-loader": "^5.2.0",
     "style-loader": "^2.0.0",
     "tailwindcss": "^2.0.4",
-    "ts-node-dev": "^1.1.6",
     "typescript": "^4.2.3",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.5.0",
@@ -50,8 +50,21 @@
     "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
+    "chokidar": "^3.5.1",
+    "concurrently": "^6.0.0",
     "express": "^4.17.1",
+    "module-alias": "^2.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "_moduleAliases": {
+    "@root": "."
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "build/server/*",
+      "build/common/*",
+      "build/dist/*"
+    ]
   }
 }
