@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MovieList from './components/MovieList';
 
 const App: React.FC = () => (
   <div>
-    Movie list app
+    <MovieList />
   </div>
 );
 
