@@ -1,5 +1,6 @@
 import React from 'react';
 import { Movie } from '../types';
+import ListItem from './ListItem';
 
 const movies: Movie[] = [
   {
@@ -19,10 +20,10 @@ const movies: Movie[] = [
 const MovieList: React.FC = () => (
   <>
     {movies.map((movie) => (
-      <div key={movie.title}>
-        <h2>{movie.title}</h2>
-        <p>{movie.year}</p>
-      </div>
+      <ListItem
+        key={movie.title}
+        movie={movie}
+      />
     ))}
   </>
 );

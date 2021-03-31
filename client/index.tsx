@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MovieList from './components/MovieList';
+import MovieList from './MovieListPage/MovieList';
 
 const App: React.FC = () => (
   <div>
