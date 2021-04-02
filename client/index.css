@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.router {
+  @apply text-white px-3 py-2 text-sm font-medium hover:text-gray-400;
+}
+
+.router.selected {
+  @apply bg-gray-900 text-white rounded-md
+}

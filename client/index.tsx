@@ -1,17 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import './index.css';
-
-import MovieList from './MovieListPage/MovieList';
-
-const App: React.FC = () => (
-  <div>
-    <MovieList />
-  </div>
-);
+import App from './App';
 
 if (module.hot) {
   module.hot.accept();
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
