@@ -1,6 +1,6 @@
-import MovieList from 'client/MovieListPage/MovieList';
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Switch, Route } from 'react-router-dom';
+import MovieList from '../MovieListPage/MovieList';
 
 const Router: React.FC = () => (
   <Switch>

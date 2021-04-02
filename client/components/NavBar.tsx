@@ -8,8 +8,10 @@ const NavBar: React.FC = () => (
         <div className="flex-1 flex items-center justify-start">
           <div className="flex space-x-4">
             <NavLink to="/" className="router" activeClassName="selected">Movie list</NavLink>
-            <NavLink to="/test" className="router" activeClassName="selected">Test</NavLink>
           </div>
+        </div>
+        <div className="flex-1 flex items-center justify-end">
+          {/* TODO: Login/register navlinks */}
         </div>
       </div>
     </div>
