@@ -21,6 +21,17 @@ const movies: Movie[] = [
 
 const getMovies = (_req: Request, res: Response): Response => res.send(movies);
 
+const getMovie = (req: Request, res: Response): void => {
+  const movie = movies.find((m) => m.id === req.params.id);
+
+  if (movie) {
+    res.send(movie);
+  } else {
+    res.sendStatus(404);
+  }
+};
+
 export {
   getMovies,
+  getMovie,
 };

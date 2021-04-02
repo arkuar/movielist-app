@@ -1,7 +1,7 @@
+import { Movie as IMovie } from '@common/types';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovie } from 'client/util/services/movies';
-import { Movie as IMovie } from '@common/types';
+import { getMovie } from '../util/services/movies';
 
 const Movie: React.FC = () => {
   const { id } = useParams<{ id: string }>();
