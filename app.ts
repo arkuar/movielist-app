@@ -1,10 +1,16 @@
-import 'module-alias/register';
 import express from 'express';
 import path from 'path';
 import chokidar from 'chokidar';
-import { inDevelopment } from './common/config';
+import mongoose from 'mongoose';
+import { inDevelopment, MONGODB_URI } from '@common/config';
 
 const app = express();
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB');
+  });
+
 app.use(express.json());
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

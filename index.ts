@@ -1,7 +1,7 @@
+import 'module-alias/register';
 import http from 'http';
+import { PORT } from '@common/config';
 import app = require('./app');
-
-const PORT = 8000;
 
 const server = http.createServer(app);
 
