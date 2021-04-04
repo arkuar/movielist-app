@@ -7,4 +7,5 @@
 |31.3 | 5 | Add first components. Initialize tailwind. Add route for movies.
 |2.4| 2 | Create component and endpoint for movie. Create navbar component.
 |3.4|4| Create github workflow. Setup jest tests and create couple of tests for movies API
-| total | 18.5  | |
+|4.4|1.5| Setup MongoDB and update controller and tests to use it.
+| total | 20  | |
