@@ -8,4 +8,5 @@
 |2.4| 2 | Create component and endpoint for movie. Create navbar component.
 |3.4|4| Create github workflow. Setup jest tests and create couple of tests for movies API
 |4.4|1.5| Setup MongoDB and update controller and tests to use it.
+|12.4|1| Add login component.
 | total | 20  | |
