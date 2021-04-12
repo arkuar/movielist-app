@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar: React.FC = () => (
   <div className="bg-gray-700">
@@ -11,7 +11,9 @@ const NavBar: React.FC = () => (
           </div>
         </div>
         <div className="flex-1 flex items-center justify-end">
-          {/* TODO: Login/register navlinks */}
+          <Link to="/login" className="router">
+            Login
+          </Link>
         </div>
       </div>
     </div>
