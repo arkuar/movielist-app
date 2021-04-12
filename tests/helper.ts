@@ -7,27 +7,27 @@ const initialMovies: IMovie[] = [
     title: 'The Godfather',
     year: 1972,
     starring: [
-      "Marlon Brando",
-      "Al Pacino"
-    ]
+      'Marlon Brando',
+      'Al Pacino',
+    ],
   },
   {
     id: '1',
     title: 'The Dark Knight',
     year: 2008,
     starring: [
-      "Christian Bale",
-      "Heath Ledger"
-    ]
+      'Christian Bale',
+      'Heath Ledger',
+    ],
   },
   {
     id: '2',
     title: 'Pulp Fiction',
     year: 1994,
     starring: [
-      "John Travolta",
-      "Uma Thurman"
-    ]
+      'John Travolta',
+      'Uma Thurman',
+    ],
   },
 ];
 
