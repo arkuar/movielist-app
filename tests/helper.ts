@@ -4,18 +4,30 @@ import Movie from '../server/models/movie';
 const initialMovies: IMovie[] = [
   {
     id: '0',
-    title: 'Godfather',
+    title: 'The Godfather',
     year: 1972,
+    starring: [
+      "Marlon Brando",
+      "Al Pacino"
+    ]
   },
   {
     id: '1',
-    title: 'Dark Knight',
+    title: 'The Dark Knight',
     year: 2008,
+    starring: [
+      "Christian Bale",
+      "Heath Ledger"
+    ]
   },
   {
     id: '2',
     title: 'Pulp Fiction',
     year: 1994,
+    starring: [
+      "John Travolta",
+      "Uma Thurman"
+    ]
   },
 ];
 
