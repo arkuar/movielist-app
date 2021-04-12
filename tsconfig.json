@@ -6,6 +6,6 @@
     "outDir": "./build",
     "baseUrl": "./"
   },
-  "include": ["./index.ts", "server", "common"],
+  "include": ["./index.ts", "app.ts", "server", "common", "tests"],
   "exclude": ["node_modules"],
 }

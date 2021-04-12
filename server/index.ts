@@ -11,4 +11,4 @@ app.get('/ping', (_req, res) => {
   res.send('pong');
 });
 
-module.exports = app;
+export = app;

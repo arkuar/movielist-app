@@ -10,7 +10,7 @@
     "resolveJsonModule": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "types": ["webpack-env"],
+    "types": ["webpack-env", "jest"],
     "paths": {
       "@root": ["./"],
       "@common/*": ["./common/*"]

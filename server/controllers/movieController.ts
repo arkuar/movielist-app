@@ -1,31 +1,15 @@
-import { Movie } from '@common/types';
 import { Request, Response } from 'express';
+import Movie from '../models/movie';
 
-const movies: Movie[] = [
-  {
-    id: '0',
-    title: 'Godfather',
-    year: 1972,
-  },
-  {
-    id: '1',
-    title: 'Dark Knight',
-    year: 2008,
-  },
-  {
-    id: '2',
-    title: 'Pulp Fiction',
-    year: 1994,
-  },
-];
+const getMovies = async (_req: Request, res: Response): Promise<void> => {
+  const movies = await Movie.find({});
+  res.json(movies);
+};
 
-const getMovies = (_req: Request, res: Response): Response => res.send(movies);
-
-const getMovie = (req: Request, res: Response): void => {
-  const movie = movies.find((m) => m.id === req.params.id);
-
+const getMovie = async (req: Request, res: Response): Promise<void> => {
+  const movie = await Movie.findById(req.params.id);
   if (movie) {
-    res.send(movie);
+    res.json(movie);
   } else {
     res.sendStatus(404);
   }
