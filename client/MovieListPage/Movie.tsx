@@ -26,6 +26,10 @@ const Movie: React.FC = () => {
         Released:
         {movie.year}
       </p>
+      <p>
+        Starring:
+        {movie.starring.join(', ')}
+      </p>
     </div>
   );
 };
