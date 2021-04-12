@@ -4,3 +4,5 @@ export interface Movie {
   year: number;
   starring: string[];
 }
+
+export type NewMovie = Omit<Movie, 'id'>;

@@ -1,9 +1,8 @@
-import { Movie as IMovie } from '@common/types';
+import { NewMovie } from '@common/types';
 import Movie from '../server/models/movie';
 
-const initialMovies: IMovie[] = [
+const initialMovies: NewMovie[] = [
   {
-    id: '0',
     title: 'The Godfather',
     year: 1972,
     starring: [
@@ -12,7 +11,6 @@ const initialMovies: IMovie[] = [
     ],
   },
   {
-    id: '1',
     title: 'The Dark Knight',
     year: 2008,
     starring: [
@@ -21,7 +19,6 @@ const initialMovies: IMovie[] = [
     ],
   },
   {
-    id: '2',
     title: 'Pulp Fiction',
     year: 1994,
     starring: [
