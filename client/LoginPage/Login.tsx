@@ -15,6 +15,7 @@ const initialValues: Values = {
 };
 
 const onSubmit = async (values: Values) => {
+  // eslint-disable-next-line no-console
   console.log(values);
 };
 
