@@ -10,6 +10,6 @@ export type NewMovie = Omit<Movie, 'id'>;
 export interface User {
   id: string;
   username: string;
-  passwordHash?: string;
+  passwordHash: string;
   name?: string;
 }

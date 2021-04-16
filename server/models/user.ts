@@ -13,7 +13,7 @@ const userSchema = new Schema({
 });
 
 userSchema.set('toJSON', {
-  transform: (_doc: never, returnedObj: Document & User) => {
+  transform: (_doc: never, returnedObj: Document & Partial<User>) => {
     const modifiedObj = returnedObj;
     modifiedObj.id = returnedObj._id?.toString();
     delete modifiedObj._id;
