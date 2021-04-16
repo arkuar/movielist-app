@@ -12,9 +12,7 @@ const login = async (req: Request, res: Response) => {
     ? false
     : compare(body.password, user.passwordHash);
   if (!(user && passwordCorrect)) {
-    res.status(401).json({
-      error: 'Invalid username or password',
-    });
+    res.status(401).send('Invalid username or password');
   } else {
     const userToken = {
       username: user.username,

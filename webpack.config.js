@@ -13,6 +13,10 @@ module.exports = (env, argv) => {
   ? ['webpack-hot-middleware/client?http://localhost:8000']
   : []
 
+  const devtool = mode === 'development'
+  ? 'eval-source-map'
+  : null
+
   return {
     mode,
     entry: [
@@ -46,6 +50,7 @@ module.exports = (env, argv) => {
         template: 'index.html'
       }),
       ...devPlugins
-    ]
+    ],
+    devtool 
   }
 }

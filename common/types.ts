@@ -13,3 +13,11 @@ export interface User {
   passwordHash: string;
   name?: string;
 }
+
+export type LoginValues = {
+  password: string;
+} & Pick<User, 'username'>;
+
+export type LoginResponse = {
+  token: string;
+} & Pick<User, 'username' | 'name'>;
