@@ -12,6 +12,7 @@ jobs:
     env:
       MONGODB_TEST: ${{ secrets.MONGODB_TEST }}
       PORT: ${{ secrets.PORT }}
+      SECRET: ${{ secrets.SECRET }}
     strategy:
       matrix:
         node-version: [14.x, 15.x]
