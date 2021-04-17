@@ -15,7 +15,7 @@ module.exports = (env, argv) => {
 
   const devtool = mode === 'development'
   ? 'eval-source-map'
-  : null
+  : false
 
   return {
     mode,

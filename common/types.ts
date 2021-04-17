@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface Movie {
   id: string;
   title: string;
@@ -21,3 +23,5 @@ export type LoginValues = {
 export type LoginResponse = {
   token: string;
 } & Pick<User, 'username' | 'name'>;
+
+export type Icon = (props: React.ComponentProps<'svg'>) => JSX.Element;
