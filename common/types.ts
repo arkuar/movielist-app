@@ -16,6 +16,8 @@ export interface User {
   name?: string;
 }
 
+export type NewUser = Omit<User, 'id'>;
+
 export type LoginValues = {
   password: string;
 } & Pick<User, 'username'>;
