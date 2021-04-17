@@ -8,9 +8,11 @@
     "start": "node build/index.js",
     "lint": "eslint --ext .ts,.tsx .",
     "test": "cross-env NODE_ENV=test jest --verbose --detectOpenHandles --forceExit",
+    "build-seed": "tsc --project tsconfig.seed.json",
     "build-server": "tsc --project tsconfig.build.json",
     "build-client": "webpack --node-env=production --mode=production",
-    "build": "npm run build-server && npm run build-client"
+    "build": "npm run build-server && npm run build-client",
+    "seed": "npm run build-seed && node build/seed/index.js && rm -rf build/seed"
   },
   "author": "",
   "license": "ISC",
