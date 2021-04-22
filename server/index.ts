@@ -1,4 +1,5 @@
 import express from 'express';
+import { errorHandler } from './middleware/errorHandler';
 import loginRouter from './routes/loginRouter';
 import movieRouter from './routes/movieRouter';
 import userRouter from './routes/userRouter';
@@ -14,5 +15,7 @@ app.use('/users', userRouter);
 app.get('/ping', (_req, res) => {
   res.send('pong');
 });
+
+app.use(errorHandler);
 
 export = app;

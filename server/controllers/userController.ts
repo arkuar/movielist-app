@@ -1,11 +1,11 @@
 import { NewUser } from '@common/types';
 import { hash } from 'bcrypt';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import User from '../models/user';
 
 const SALT_ROUNDS = 10;
 
-const signup = async (req: Request, res: Response) => {
+const signup = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { body: { username, password, name } } = req;
 
@@ -28,8 +28,7 @@ const signup = async (req: Request, res: Response) => {
     const savedUser = await User.create(user);
     return res.json(savedUser.toJSON());
   } catch (error) {
-    console.log(error);
-    return res.status(400).send({ error: `Encountered error: ${error}` });
+    return next(error);
   }
 };
 
