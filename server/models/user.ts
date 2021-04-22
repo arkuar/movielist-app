@@ -1,5 +1,6 @@
 import { User } from '@common/types';
 import mongoose, { Document, Schema } from 'mongoose';
+import validator from 'mongoose-unique-validator';
 
 const userSchema = new Schema({
   username: {
@@ -21,5 +22,7 @@ userSchema.set('toJSON', {
     delete modifiedObj.passwordHash;
   },
 });
+
+userSchema.plugin(validator);
 
 export default mongoose.model<User & Document>('User', userSchema);
