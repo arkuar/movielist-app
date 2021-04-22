@@ -11,4 +11,5 @@
 |12.4|1| Add login component.
 |16.4|4.5| Add login functionality. Style login component
 |17.4|2.5| Refactor login component. Tests for login endpoint
-| total | 28 | |
+|22.4|2|Create signup endpoint and tests for it.
+| total | 30 | |
