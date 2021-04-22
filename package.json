@@ -7,7 +7,7 @@
     "dev": "concurrently \"tsc --watch --project tsconfig.build.json\"  \"cross-env NODE_ENV=development nodemon build/index.js\"",
     "start": "node build/index.js",
     "lint": "eslint --ext .ts,.tsx .",
-    "test": "cross-env NODE_ENV=test jest --verbose --detectOpenHandles --forceExit",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand --detectOpenHandles --forceExit",
     "build-seed": "tsc --project tsconfig.seed.json",
     "build-server": "tsc --project tsconfig.build.json",
     "build-client": "webpack --node-env=production --mode=production",
