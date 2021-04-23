@@ -3,12 +3,19 @@ import {
 } from 'mongoose';
 import React from 'react';
 
-export interface Movie {
-  id: string;
+export interface BaseMovie {
   title: string;
   year: number;
   starring: string[];
 }
+
+export interface MovieModel extends BaseMovie, Document {
+  id: string;
+}
+
+type SharedKeys<T, U> = Extract<keyof T, keyof U>;
+
+export type Movie = Pick<MovieModel, 'id' | SharedKeys<MovieModel, BaseMovie>>;
 
 export type NewMovie = Omit<Movie, 'id'>;
 
