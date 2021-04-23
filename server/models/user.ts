@@ -1,28 +1,32 @@
-import { User } from '@common/types';
-import mongoose, { Document, Schema } from 'mongoose';
+import { BaseUser, SchemaFields, UserModel } from '@common/types';
+import { Document, model, Schema } from 'mongoose';
 import validator from 'mongoose-unique-validator';
 
-const userSchema = new Schema({
+const schemaFields: SchemaFields<BaseUser> = {
   username: {
     type: String,
-    required: true,
     unique: true,
-    minLength: 3,
+    required: true,
+    minlength: 3,
   },
   name: String,
   passwordHash: String,
-});
+};
 
-userSchema.set('toJSON', {
-  transform: (_doc: never, returnedObj: Document & Partial<User>) => {
-    const modifiedObj = returnedObj;
-    modifiedObj.id = returnedObj._id?.toString();
-    delete modifiedObj._id;
-    delete modifiedObj.__v;
-    delete modifiedObj.passwordHash;
+const userSchema = new Schema(schemaFields, {
+  toJSON: {
+    transform: (_doc: Document, returnedObj: Partial<UserModel>) => {
+      const modifiedObj = returnedObj;
+      modifiedObj.id = returnedObj._id.toString();
+      delete modifiedObj._id;
+      delete modifiedObj.__v;
+      delete modifiedObj.passwordHash;
+    },
   },
 });
 
 userSchema.plugin(validator);
 
-export default mongoose.model<User & Document>('User', userSchema);
+const User = model<UserModel>('User', userSchema);
+
+export default User;

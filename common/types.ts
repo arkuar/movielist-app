@@ -1,3 +1,6 @@
+import {
+  Schema, SchemaType, SchemaTypeOpts, Document,
+} from 'mongoose';
 import React from 'react';
 
 export interface Movie {
@@ -9,21 +12,25 @@ export interface Movie {
 
 export type NewMovie = Omit<Movie, 'id'>;
 
-export interface User {
-  id: string;
+export interface BaseUser {
   username: string;
   passwordHash: string;
   name?: string;
 }
 
-export type NewUser = Omit<User, 'id'>;
+export interface UserModel extends BaseUser, Document { }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type SchemaFields<T> = Record<keyof T, SchemaTypeOpts<any> | Schema | SchemaType>;
+
+export type NewUser = Omit<BaseUser, 'id'>;
 
 export type LoginValues = {
   password: string;
-} & Pick<User, 'username'>;
+} & Pick<BaseUser, 'username'>;
 
 export type LoginResponse = {
   token: string;
-} & Pick<User, 'username' | 'name'>;
+} & Pick<BaseUser, 'username' | 'name'>;
 
 export type Icon = (props: React.ComponentProps<'svg'>) => JSX.Element;
