@@ -1,7 +1,7 @@
-import { Movie } from '@common/types';
-import mongoose, { Document, Schema } from 'mongoose';
+import { BaseMovie, MovieModel, SchemaFields } from '@common/types';
+import { Document, model, Schema } from 'mongoose';
 
-const movieSchema = new Schema({
+const schemaFields: SchemaFields<BaseMovie> = {
   title: {
     type: String,
     required: true,
@@ -10,16 +10,24 @@ const movieSchema = new Schema({
     type: Number,
     required: true,
   },
-});
+  starring: {
+    type: [String],
+    required: true,
+  },
+};
 
-movieSchema.set('toJSON', {
-  transform: (_doc: never, returnedObj: Document) => {
-    const modifiedObj = returnedObj;
-    modifiedObj.id = returnedObj._id.toString();
-    delete modifiedObj._id;
-    delete modifiedObj.__v;
-    return modifiedObj;
+const movieSchema = new Schema(schemaFields, {
+  toJSON: {
+    transform: (_doc: Document, returnedObj: Partial<MovieModel>) => {
+      const modifiedObj = returnedObj;
+      modifiedObj.id = returnedObj._id.toString();
+      delete modifiedObj._id;
+      delete modifiedObj.__v;
+      return modifiedObj;
+    },
   },
 });
 
-export default mongoose.model<Movie & Document>('Movie', movieSchema);
+const Movie = model<MovieModel>('Movie', movieSchema);
+
+export default Movie;
