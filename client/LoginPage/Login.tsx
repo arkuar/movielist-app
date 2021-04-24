@@ -2,20 +2,21 @@ import { LoginValues } from '@common/types';
 import {
   Form, Formik, FormikHelpers,
 } from 'formik';
-import { UserIcon, LockClosedIcon } from '@heroicons/react/outline';
+import { UserIcon, LockClosedIcon, LoginIcon } from '@heroicons/react/outline';
 import React from 'react';
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import loginService from '../util/services/login';
 import TextInput from '../components/TextInput';
 import SubmitButton from '../components/SubmitButton';
+import ServerError from '../components/ServerError';
 
 const initialValues: LoginValues = {
   username: '',
   password: '',
 };
 
-const LoginSchema = yup.object().shape({
+const LoginSchema: yup.SchemaOf<LoginValues> = yup.object().shape({
   username: yup.string()
     .trim()
     .required('Username is required'),
@@ -50,8 +51,8 @@ const Login: React.FC = () => {
           <Form className="mt-5 w-full">
             <TextInput name="username" type="text" label="Username" IconComponent={UserIcon} />
             <TextInput name="password" type="password" label="Password" IconComponent={LockClosedIcon} />
-            {!!status && <div className="text-red-500">{status}</div>}
-            <SubmitButton />
+            <ServerError message={status} />
+            <SubmitButton text="Login" IconComponent={LoginIcon} />
           </Form>
         )}
       </Formik>

@@ -17,6 +17,9 @@ module.exports = {
   rules: {
     "react/prop-types": "off",
     "react/jsx-uses-react": "off",
+    "react/jsx-props-no-spreading": ["error", {
+      "exceptions": ["input"]
+    }],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/label-has-associated-control": [ "error", {
       "controlComponents": ["Field"]

@@ -1,6 +1,12 @@
 import { SignUpValues } from '@common/types';
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import React from 'react';
+import {
+  object, SchemaOf, string, ref,
+} from 'yup';
+import TextInput from '../components/TextInput';
+import SubmitButton from '../components/SubmitButton';
+import ServerError from '../components/ServerError';
 
 const initialValues: SignUpValues = {
   username: '',
@@ -8,6 +14,21 @@ const initialValues: SignUpValues = {
   password: '',
   passwordConfirmation: '',
 };
+
+const SignUpSchema: SchemaOf<SignUpValues> = object({
+  username: string()
+    .min(3, 'Username must be at least 3 characters')
+    .max(30)
+    .trim()
+    .required('Username is required'),
+  password: string()
+    .min(5, 'Password must be at least 5 characters')
+    .required('Password is required'),
+  passwordConfirmation: string()
+    .oneOf([ref('password')], 'Password does not match')
+    .required('Password confirmation is required'),
+  name: string(),
+});
 
 const SignUp: React.FC = () => {
   const onSubmit = async (values: SignUpValues) => {
@@ -19,12 +40,18 @@ const SignUp: React.FC = () => {
       <div className="font-medium uppercase text-gray-800 text-2xl lg:text-3xl">Create account</div>
       <Formik
         initialValues={initialValues}
+        validationSchema={SignUpSchema}
         onSubmit={onSubmit}
       >
-        <Form className="mt-5 w-full">
-          <Field type="text" name="username" placeholder="Username" />
-          <button type="submit">Create account</button>
-        </Form>
+        {({ status, isValid, dirty }) => (
+          <Form className="mt-5 w-full">
+            <TextInput label="Username" name="username" type="text" required />
+            <TextInput label="Password" name="password" type="password" required />
+            <TextInput label="Password confirmation" name="passwordConfirmation" type="password" required />
+            <ServerError message={status} />
+            <SubmitButton text="Create account" disabled={!(isValid && dirty)} />
+          </Form>
+        )}
       </Formik>
     </div>
   );
