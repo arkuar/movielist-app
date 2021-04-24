@@ -13,4 +13,5 @@
 |17.4|2.5| Refactor login component. Tests for login endpoint
 |22.4|2|Create signup endpoint and tests for it.
 |23.4|2.5| Refactor mongoose models with proper typings
-| total | 32.5 | |
+|24.4|3.5| Create SignUp component. Refactor form components.
+| total | 36 | |
