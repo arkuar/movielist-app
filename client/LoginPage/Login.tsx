@@ -7,8 +7,8 @@ import React from 'react';
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import loginService from '../util/services/login';
-import LoginFormInput from './LoginFormInput';
-import LoginFormSubmit from './LoginFormSubmit';
+import TextInput from '../components/TextInput';
+import SubmitButton from '../components/SubmitButton';
 
 const initialValues: LoginValues = {
   username: '',
@@ -48,10 +48,10 @@ const Login: React.FC = () => {
       >
         {({ status }) => (
           <Form className="mt-5 w-full">
-            <LoginFormInput name="username" type="text" label="Username" IconComponent={UserIcon} />
-            <LoginFormInput name="password" type="password" label="Password" IconComponent={LockClosedIcon} />
+            <TextInput name="username" type="text" label="Username" IconComponent={UserIcon} />
+            <TextInput name="password" type="password" label="Password" IconComponent={LockClosedIcon} />
             {!!status && <div className="text-red-500">{status}</div>}
-            <LoginFormSubmit />
+            <SubmitButton />
           </Form>
         )}
       </Formik>
