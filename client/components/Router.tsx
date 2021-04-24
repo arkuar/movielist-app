@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import MovieList from '../MovieListPage/MovieList';
 import Movie from '../MovieListPage/Movie';
 import Login from '../LoginPage/Login';
+import SignUp from '../SignUpPage/SignUp';
 
 const Router: React.FC = () => (
   <Switch>
@@ -14,6 +15,9 @@ const Router: React.FC = () => (
     </Route>
     <Route path="/login">
       <Login />
+    </Route>
+    <Route path="/signup">
+      <SignUp />
     </Route>
   </Switch>
 );

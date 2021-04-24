@@ -40,4 +40,9 @@ export type LoginResponse = {
   token: string;
 } & Pick<BaseUser, 'username' | 'name'>;
 
+export type SignUpValues = {
+  password: string;
+  passwordConfirmation: string;
+} & Pick<BaseUser, 'username' | 'name'>;
+
 export type Icon = (props: React.ComponentProps<'svg'>) => JSX.Element;

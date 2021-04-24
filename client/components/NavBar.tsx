@@ -14,6 +14,9 @@ const NavBar: React.FC = () => (
           <Link to="/login" className="router">
             Login
           </Link>
+          <Link to="/signup" className="router">
+            Sign up
+          </Link>
         </div>
       </div>
     </div>
