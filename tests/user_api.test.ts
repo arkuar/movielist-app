@@ -25,7 +25,7 @@ describe('POST /api/users', () => {
       .send({ username: 'TestUser', password: 'Password' })
       .expect(400)
       .expect('Content-Type', /json/);
-    expect(error).toContain('expected `username` to be unique');
+    expect(error).toContain('Username TestUser is already taken');
   });
 
   test('should return proper error message if password is missing', async () => {

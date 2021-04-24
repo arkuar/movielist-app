@@ -1,9 +1,12 @@
 import { SignUpValues } from '@common/types';
-import { Form, Formik } from 'formik';
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { Form, Formik, FormikHelpers } from 'formik';
 import {
   object, SchemaOf, string, ref,
 } from 'yup';
+import usersService from '../util/services/users';
+import loginService from '../util/services/login';
 import TextInput from '../components/TextInput';
 import SubmitButton from '../components/SubmitButton';
 import ServerError from '../components/ServerError';
@@ -31,8 +34,26 @@ const SignUpSchema: SchemaOf<SignUpValues> = object({
 });
 
 const SignUp: React.FC = () => {
-  const onSubmit = async (values: SignUpValues) => {
-    console.log(values);
+  const history = useHistory();
+
+  const onSubmit = async (
+    values: SignUpValues,
+    { setStatus, setFieldError }: FormikHelpers<SignUpValues>,
+  ) => {
+    try {
+      const { username, name, password } = values;
+      await usersService.signup({ username, name, password });
+      // TODO: Refactor with a hook handles login
+      await loginService.login({ username, password });
+      history.push('/');
+    } catch (exception) {
+      const { error, field } = exception.response.data;
+      if (field) {
+        setFieldError(field, error);
+      } else {
+        setStatus(error);
+      }
+    }
   };
 
   return (

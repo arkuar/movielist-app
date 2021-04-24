@@ -1,7 +1,12 @@
 import { NextFunction, Request, Response } from 'express';
 
-const errorHandler = (error: Error, _req: Request, res: Response, next: NextFunction) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const errorHandler = (error: any, _req: Request, res: Response, next: NextFunction) => {
   if (error.name === 'ValidationError') {
+    if (error.errors.username) {
+      const { message, path } = error.errors.username;
+      return res.status(400).json({ error: message, field: path });
+    }
     return res.status(400).json({ error: error.message });
   }
 

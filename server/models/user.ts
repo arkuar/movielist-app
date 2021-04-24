@@ -25,7 +25,7 @@ const userSchema = new Schema(schemaFields, {
   },
 });
 
-userSchema.plugin(validator);
+userSchema.plugin(validator, { message: 'Username {VALUE} is already taken' });
 
 const User = model<UserModel>('User', userSchema);
 

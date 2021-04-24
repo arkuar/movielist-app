@@ -45,4 +45,6 @@ export type SignUpValues = {
   passwordConfirmation: string;
 } & Pick<BaseUser, 'username' | 'name'>;
 
+export type SignUpResponse = Omit<BaseUser, 'passwordHash'>;
+
 export type Icon = (props: React.ComponentProps<'svg'>) => JSX.Element;
