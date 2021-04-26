@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../util/hooks/useAuth';
+import { clearUser } from '../util/contexts';
 
 const NavBar: React.FC = () => {
-  const [{ username }] = useAuth();
+  const [{ username }, dispatch] = useAuth();
+
+  const logOut = () => {
+    dispatch(clearUser());
+  };
 
   return (
     <div className="bg-gray-700">
@@ -15,18 +20,19 @@ const NavBar: React.FC = () => {
             </div>
           </div>
           <div className="flex-1 flex items-center justify-end">
-            {!username ? (
-              <>
-                <Link to="/login" className="router">
-                  Login
-                </Link>
-                <Link to="/signup" className="router">
-                  Sign up
-                </Link>
-              </>
-            )
+            {!username
+              ? (
+                <>
+                  <Link to="/login" className="router">
+                    Login
+                  </Link>
+                  <Link to="/signup" className="router">
+                    Sign up
+                  </Link>
+                </>
+              )
               : (
-                <div className="router">Logout</div>
+                <div className="router cursor-pointer" role="link" tabIndex={0} aria-hidden="true" onClick={logOut}>Logout</div>
               )}
           </div>
         </div>
