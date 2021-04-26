@@ -5,11 +5,10 @@ import {
 import { UserIcon, LockClosedIcon, LoginIcon } from '@heroicons/react/outline';
 import React from 'react';
 import * as yup from 'yup';
-import { useHistory } from 'react-router-dom';
-import loginService from '../util/services/login';
 import TextInput from '../components/TextInput';
 import SubmitButton from '../components/SubmitButton';
 import ServerError from '../components/ServerError';
+import useLogin from '../util/hooks/useLogin';
 
 const initialValues: LoginValues = {
   username: '',
@@ -26,13 +25,10 @@ const LoginSchema: yup.SchemaOf<LoginValues> = yup.object().shape({
 });
 
 const Login: React.FC = () => {
-  const history = useHistory();
-
+  const logIn = useLogin();
   const onSubmit = async (values: LoginValues, { setStatus }: FormikHelpers<LoginValues>) => {
     try {
-      const user = await loginService.login(values);
-      window.localStorage.setItem('userToken', JSON.stringify(user));
-      history.push('/');
+      await logIn(values);
     } catch (error) {
       const { data: message } = error.response;
       setStatus(message);

@@ -10,7 +10,7 @@ const login = async (req: Request, res: Response) => {
   const user = await User.findOne({ username: body.username });
   const passwordCorrect = user === null
     ? false
-    : compare(body.password, user.passwordHash);
+    : await compare(body.password, user.passwordHash);
   if (!(user && passwordCorrect)) {
     res.status(401).send('Invalid username or password');
   } else {

@@ -1,15 +1,14 @@
 import { SignUpValues } from '@common/types';
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { Form, Formik, FormikHelpers } from 'formik';
 import {
   object, SchemaOf, string, ref,
 } from 'yup';
 import usersService from '../util/services/users';
-import loginService from '../util/services/login';
 import TextInput from '../components/TextInput';
 import SubmitButton from '../components/SubmitButton';
 import ServerError from '../components/ServerError';
+import useLogin from '../util/hooks/useLogin';
 
 const initialValues: SignUpValues = {
   username: '',
@@ -34,7 +33,7 @@ const SignUpSchema: SchemaOf<SignUpValues> = object({
 });
 
 const SignUp: React.FC = () => {
-  const history = useHistory();
+  const logIn = useLogin();
 
   const onSubmit = async (
     values: SignUpValues,
@@ -43,9 +42,7 @@ const SignUp: React.FC = () => {
     try {
       const { username, name, password } = values;
       await usersService.signup({ username, name, password });
-      // TODO: Refactor with a hook handles login
-      await loginService.login({ username, password });
-      history.push('/');
+      await logIn({ username, password });
     } catch (exception) {
       const { error, field } = exception.response.data;
       if (field) {
