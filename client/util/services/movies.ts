@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { Movie } from '@common/types';
+import axios from './api';
 
 const basePath = '/api/movies';
 

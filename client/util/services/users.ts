@@ -1,5 +1,5 @@
 import { SignUpValues, SignUpResponse } from '@common/types';
-import axios from 'axios';
+import axios from './api';
 
 const baseUrl = '/api/users';
 

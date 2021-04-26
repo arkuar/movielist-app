@@ -1,6 +1,7 @@
 import React, {
   createContext, Dispatch, Reducer, useEffect, useReducer,
 } from 'react';
+import { deleteAuthHeader, setAuthHeader } from '../services/api';
 import { AuthAction, AuthState } from './reducers';
 
 const currentUser = localStorage.getItem('userToken');
@@ -37,6 +38,14 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ reducer, children })
       localStorage.removeItem('userToken');
     }
   }, [state]);
+
+  useEffect(() => {
+    if (state.token) {
+      setAuthHeader(state.token);
+    } else {
+      deleteAuthHeader();
+    }
+  }, [state.token]);
 
   return (
     <AuthContext.Provider value={[state, dispatch]}>
