@@ -9,3 +9,7 @@
 .router.selected {
   @apply bg-gray-900 text-white rounded-md
 }
+
+.spinner {
+  animation: spin 2s linear infinite
+}
