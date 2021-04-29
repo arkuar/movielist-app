@@ -1,19 +1,24 @@
 import { Movie as IMovie } from '@common/types';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { getMovie } from '../util/services/movies';
 
 const Movie: React.FC = () => {
+  const history = useHistory();
   const { id } = useParams<{ id: string }>();
   const [movie, setMovie] = useState<IMovie>();
 
   useEffect(() => {
     const fetchMovie = async () => {
-      const result = await getMovie(id);
-      setMovie(result);
+      try {
+        const result = await getMovie(id);
+        setMovie(result);
+      } catch (error) {
+        history.push('/');
+      }
     };
     fetchMovie();
-  }, [id]);
+  }, [id, history]);
 
   if (!movie) {
     return <div>Loading...</div>;
