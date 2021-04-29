@@ -16,20 +16,28 @@ const Movie: React.FC = () => {
   }, [id]);
 
   if (!movie) {
-    return <div>Invalid ID</div>;
+    return <div>Loading...</div>;
   }
 
   return (
-    <div>
-      <h1>{movie.title}</h1>
-      <p>
-        Released:
-        {movie.year}
-      </p>
-      <p>
-        Starring:
-        {movie.starring.join(', ')}
-      </p>
+    <div className="border-2 m-5 flex flex-col flow items-center rounded flex-wrap">
+      <div className="flex flex-col md:flex-row w-full">
+        <img src="https://picsum.photos/200/300" alt="Movie poster" className="rounded-r-md" width="200" height="300" />
+        <div className="flex flex-col m-2 justify-around">
+          <div>
+            <h1 className="text-2xl font-semibold text-gray-800">{movie.title}</h1>
+            <p className="text-sm font-light">
+              Released:
+              {' '}
+              {movie.year}
+            </p>
+          </div>
+          <div className="flex flex-row items-baseline">
+            <h2 className="text-xl font-semibold mr-2">Starring:</h2>
+            <p>{movie.starring.join(', ')}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

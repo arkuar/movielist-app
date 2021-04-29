@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import Movie from '../models/movie';
 
 const getMovies = async (_req: Request, res: Response): Promise<void> => {
@@ -6,12 +6,16 @@ const getMovies = async (_req: Request, res: Response): Promise<void> => {
   res.json(movies);
 };
 
-const getMovie = async (req: Request, res: Response): Promise<void> => {
-  const movie = await Movie.findById(req.params.id);
-  if (movie) {
-    res.json(movie);
-  } else {
-    res.sendStatus(404);
+const getMovie = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  try {
+    const movie = await Movie.findById(req.params.id);
+    if (movie) {
+      res.json(movie);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (error) {
+    next(error);
   }
 };
 

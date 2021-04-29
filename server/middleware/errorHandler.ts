@@ -10,6 +10,10 @@ const errorHandler = (error: any, _req: Request, res: Response, next: NextFuncti
     return res.status(400).json({ error: error.message });
   }
 
+  if (error.name === 'CastError') {
+    return res.status(400).send({ error: 'Not a valid ID' });
+  }
+
   return next(error);
 };
 
