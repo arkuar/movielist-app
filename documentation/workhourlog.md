@@ -15,4 +15,5 @@
 |23.4|2.5| Refactor mongoose models with proper typings
 |24.4|3.5| Create SignUp component. Refactor form components.
 |26.4|3|Create context provider for authentication
-| total | 39 | |
+|29.4|3.5|Style Movie page. Add error handling for CastErrors. Create loading spinner.
+| total | 42.5 | |
