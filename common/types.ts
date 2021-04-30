@@ -52,9 +52,11 @@ export type Icon = (props: React.ComponentProps<'svg'>) => JSX.Element;
 export interface BaseReview {
   text: string;
   rating: number;
-  movie: Movie;
-  user: BaseUser['username']
+  movie: Movie['id'];
+  user: string;
 }
+
+export type NewReview = BaseReview;
 
 export interface ReviewModel extends BaseReview, Document {
   id: string;
