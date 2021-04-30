@@ -16,4 +16,5 @@
 |24.4|3.5| Create SignUp component. Refactor form components.
 |26.4|3|Create context provider for authentication
 |29.4|3.5|Style Movie page. Add error handling for CastErrors. Create loading spinner.
-| total | 42.5 | |
+|30.4|3.5|Find suitable toaster library and create notification functionality around it. Create Review model w/ appropriate controller and router.
+| total | 46 | |
