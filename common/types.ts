@@ -48,3 +48,14 @@ export type SignUpValues = {
 export type SignUpResponse = Omit<BaseUser, 'passwordHash'>;
 
 export type Icon = (props: React.ComponentProps<'svg'>) => JSX.Element;
+
+export interface BaseReview {
+  text: string;
+  rating: number;
+  movie: Movie;
+  user: BaseUser['username']
+}
+
+export interface ReviewModel extends BaseReview, Document {
+  id: string;
+}
