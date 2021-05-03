@@ -2,7 +2,7 @@ import { NewUser } from '@common/types';
 import { hashSync } from 'bcrypt';
 import User from '../server/models/user';
 
-const passwordHash = hashSync('passowrd', 10);
+const passwordHash = hashSync('password', 10);
 
 const users: NewUser[] = [
   {

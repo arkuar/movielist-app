@@ -14,6 +14,7 @@ export interface BaseMovie {
   title: string;
   year: number;
   starring: string[];
+  reviews: Review[]
 }
 
 export interface MovieModel extends BaseMovie, Document {
@@ -24,7 +25,7 @@ type SharedKeys<T, U> = Extract<keyof T, keyof U>;
 
 export type Movie = Pick<MovieModel, 'id' | SharedKeys<MovieModel, BaseMovie>>;
 
-export type NewMovie = Omit<Movie, 'id'>;
+export type NewMovie = Omit<Movie, 'id' | 'reviews'>;
 
 export interface BaseUser {
   username: string;
@@ -65,6 +66,13 @@ export interface BaseReview {
 
 export type NewReview = BaseReview;
 
+export type Review = Pick<ReviewModel, 'id' | SharedKeys<ReviewModel, BaseReview>>;
+
 export interface ReviewModel extends BaseReview, Document {
+  id: string;
+}
+
+export interface Token {
+  username: string;
   id: string;
 }

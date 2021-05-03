@@ -13,7 +13,7 @@ export const errorHandler = (err: any, _req: Request, res: Response, next: NextF
   }
 
   if (err instanceof Error.CastError) {
-    return res.status(400).send({ error: 'Not a valid ID' });
+    return res.status(400).send({ error: `Not a valid ID: ${err.stringValue}` });
   }
 
   if (err instanceof JsonWebTokenError) {

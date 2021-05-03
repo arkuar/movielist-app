@@ -1,20 +1,47 @@
-// import { NewReview } from '@common/types';
+import { SECRET } from '@common/config';
+import { Token, NewReview } from '@common/types';
 import { NextFunction, Request, Response } from 'express';
-// import Review from '../models/review';
+import { verify } from 'jsonwebtoken';
+import Movie from '../models/movie';
+import User from '../models/user';
+import Review from '../models/review';
 
-const createReview = async (_req: Request, res: Response, _next: NextFunction): Promise<void> => {
-  // try {
-  //   const { body: { text, rating, movie } } = req;
+const createReview = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { body: { text, rating, movieId }, token } = req;
+    if (!token) {
+      return res.status(401).send({ error: 'Missing token' });
+    }
+    const decodedToken = verify(token, SECRET) as Token;
 
-  //   const review: NewReview = {
-  //     text,
-  //     rating,
+    const user = await User.findById(decodedToken.id);
 
-  //   };
-  // } catch (error) {
-  //   next(error);
-  // }
-  res.send('Not yet implemented');
+    if (!user) {
+      return res.status(400).send({ error: 'Invalid user' });
+    }
+
+    const movie = await Movie.findById(movieId);
+
+    if (!movie) {
+      return res.status(400).send({ error: 'Invalid movie ID' });
+    }
+
+    const review: NewReview = {
+      text,
+      rating,
+      user: user._id,
+      movie: movie._id,
+    };
+
+    const savedReview = await Review.create(review);
+
+    movie.reviews.push(savedReview._id);
+    await movie.save();
+
+    return res.send(savedReview);
+  } catch (error) {
+    return next(error);
+  }
 };
 
 export {

@@ -1,5 +1,7 @@
 import { BaseMovie, MovieModel, SchemaFields } from '@common/types';
-import { Document, model, Schema } from 'mongoose';
+import {
+  Document, model, Schema, Types,
+} from 'mongoose';
 
 const schemaFields: SchemaFields<BaseMovie> = {
   title: {
@@ -13,6 +15,10 @@ const schemaFields: SchemaFields<BaseMovie> = {
   starring: {
     type: [String],
     required: true,
+  },
+  reviews: {
+    type: [Types.ObjectId],
+    ref: 'Review',
   },
 };
 

@@ -8,7 +8,11 @@ const getMovies = async (_req: Request, res: Response): Promise<void> => {
 
 const getMovie = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const movie = await Movie.findById(req.params.id);
+    const movie = await Movie.findById(req.params.id).populate({
+      path: 'reviews',
+      populate: { path: 'user' },
+    });
+
     if (movie) {
       res.json(movie);
     } else {
