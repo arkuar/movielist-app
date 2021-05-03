@@ -3,6 +3,13 @@ import {
 } from 'mongoose';
 import React from 'react';
 
+// Extend the Express.Request interface with a token property
+declare module 'express-serve-static-core' {
+  interface Request {
+    token: string | null;
+  }
+}
+
 export interface BaseMovie {
   title: string;
   year: number;

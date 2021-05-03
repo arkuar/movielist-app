@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const errorHandler = (error: any, _req: Request, res: Response, next: NextFunction) => {
+export const errorHandler = (error: any, _req: Request, res: Response, next: NextFunction) => {
   if (error.name === 'ValidationError') {
     if (error.errors.username) {
       const { message, path } = error.errors.username;
@@ -15,8 +15,4 @@ const errorHandler = (error: any, _req: Request, res: Response, next: NextFuncti
   }
 
   return next(error);
-};
-
-export {
-  errorHandler,
 };
