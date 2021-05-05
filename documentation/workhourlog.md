@@ -18,4 +18,5 @@
 |29.4|3.5|Style Movie page. Add error handling for CastErrors. Create loading spinner.
 |30.4|3.5|Find suitable toaster library and create notification functionality around it. Create Review model w/ appropriate controller and router.
 |3.5|3.5|Add token extractor middleware. Create createReview functionality.
-| total | 49.5 | |
+|5.5|2|Add tests to Review API
+| total | 51.5 | |
