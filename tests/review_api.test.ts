@@ -38,6 +38,63 @@ describe('POST /api/reviews', () => {
         .expect(201)
         .expect('Content-Type', /json/);
     });
+
+    test('should return error if rating is too low', async () => {
+      const invalidReview: PostReview = {
+        movieId: existingMovieId,
+        rating: -1,
+        text: 'Review text',
+      };
+      const { body: { error } } = await api.post(baseUrl)
+        .send(invalidReview)
+        .expect(400);
+      expect(error).toContain('`rating` (-1) is less than minimum allowed value');
+    });
+
+    test('should return error if rating is too high', async () => {
+      const invalidReview: PostReview = {
+        movieId: existingMovieId,
+        rating: 11,
+        text: 'Review text',
+      };
+      const { body: { error } } = await api.post(baseUrl)
+        .send(invalidReview)
+        .expect(400);
+      expect(error).toContain('`rating` (11) is more than maximum allowed value ');
+    });
+
+    test('should return error if review text is too short', async () => {
+      const invalidReview: PostReview = {
+        movieId: existingMovieId,
+        rating: 7,
+        text: 'text',
+      };
+      const { body: { error } } = await api.post(baseUrl)
+        .send(invalidReview)
+        .expect(400);
+      expect(error).toContain('Path `text` (`text`) is shorter than the minimum allowed length');
+    });
+  });
+
+  test('should return error if token is invalid', async () => {
+    api.auth('invalidtoken', { type: 'bearer' });
+    const review: PostReview = {
+      movieId: existingMovieId,
+      rating: 5,
+      text: 'Review text',
+    };
+    const { body: { error } } = await api.post(baseUrl)
+      .send(review)
+      .expect(401);
+    expect(error).toContain('Invalid token');
+  });
+
+  test('should return error if token is missing', async () => {
+    api.auth('', '');
+    const { body: { error } } = await api.post(baseUrl)
+      .send({})
+      .expect(401);
+    expect(error).toContain('Missing token');
   });
 
   afterAll(async () => {
