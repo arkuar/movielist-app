@@ -38,7 +38,7 @@ const createReview = async (req: Request, res: Response, next: NextFunction) => 
     movie.reviews.push(savedReview._id);
     await movie.save();
 
-    return res.send(savedReview);
+    return res.status(201).send(savedReview);
   } catch (error) {
     return next(error);
   }

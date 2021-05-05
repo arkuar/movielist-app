@@ -72,6 +72,12 @@ export interface ReviewModel extends BaseReview, Document {
   id: string;
 }
 
+export interface PostReview {
+  rating: number;
+  movieId: string;
+  text: string;
+}
+
 export interface Token {
   username: string;
   id: string;
