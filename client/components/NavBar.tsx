@@ -17,6 +17,9 @@ const NavBar: React.FC = () => {
           <div className="flex-1 flex items-center justify-start">
             <div className="flex space-x-4">
               <NavLink exact to="/" className="router" activeClassName="selected">Movie list</NavLink>
+              {username
+                ? <NavLink to="/createreview" className="router" activeClassName="selected">Create review</NavLink>
+                : null}
             </div>
           </div>
           <div className="flex-1 flex items-center justify-end">

@@ -5,6 +5,7 @@ import Movie from '../MovieListPage/Movie';
 import Login from '../LoginPage/Login';
 import SignUp from '../SignUpPage/SignUp';
 import useAuth from '../util/hooks/useAuth';
+import AddReviewForm from '../AddReviewPage/AddReviewForm';
 
 const Router: React.FC = () => {
   const [{ username }] = useAuth();
@@ -26,6 +27,11 @@ const Router: React.FC = () => {
         {username
           ? <Redirect to="/" />
           : <SignUp />}
+      </Route>
+      <Route path="/createreview">
+        {username
+          ? <AddReviewForm />
+          : <Redirect to="/" />}
       </Route>
     </Switch>
   );
