@@ -1,9 +1,11 @@
 import { Router } from 'express';
-import { getMovie, getMovies } from '../controllers/movieController';
+import { findMovies, getMovie, getMovies } from '../controllers/movieController';
 
 const movieRouter = Router();
 
 movieRouter.get('/', getMovies);
+
+movieRouter.get('/search', findMovies);
 
 movieRouter.get('/:id', getMovie);
 

@@ -12,9 +12,12 @@ const PORT = process.env.PORT || 8000;
 
 const SECRET = process.env.SECRET || '';
 
+const OMDB_API_KEY = process.env.OMDB_API_KEY || '';
+
 export {
   inDevelopment,
   MONGODB_URI,
   PORT,
   SECRET,
+  OMDB_API_KEY,
 };

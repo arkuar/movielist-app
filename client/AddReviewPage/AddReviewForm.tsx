@@ -29,6 +29,7 @@ const ReviewSchema: SchemaOf<ReviewValues> = object({
 
 const AddReviewForm: React.FC = () => {
   const onSubmit = (values: ReviewValues) => {
+    // eslint-disable-next-line no-console
     console.log(values);
   };
 
