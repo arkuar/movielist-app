@@ -18,7 +18,7 @@ module.exports = {
     "react/prop-types": "off",
     "react/jsx-uses-react": "off",
     "react/jsx-props-no-spreading": ["error", {
-      "exceptions": ["input"]
+      "exceptions": ["input", "textarea"]
     }],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/label-has-associated-control": [ "error", {

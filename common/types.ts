@@ -72,6 +72,8 @@ export interface ReviewModel extends BaseReview, Document {
   id: string;
 }
 
+export type ReviewValues = Omit<BaseReview, 'user'>;
+
 export interface PostReview {
   rating: number;
   movieId: string;
