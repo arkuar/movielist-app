@@ -19,4 +19,5 @@
 |30.4|3.5|Find suitable toaster library and create notification functionality around it. Create Review model w/ appropriate controller and router.
 |3.5|3.5|Add token extractor middleware. Create createReview functionality.
 |5.5|2|Add tests to Review API
-| total | 51.5 | |
+|7.5|4|Create AddReviewForm component. Start implementing backend service that communicates with OMDB API.
+| total | 55.5 | |
