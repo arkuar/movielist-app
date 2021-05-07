@@ -1,7 +1,10 @@
 import React from 'react';
+import FormContainer from '../components/FormContainer';
 
 const AddReviewForm: React.FC = () => (
-  <div>Form here</div>
+  <FormContainer title="Create reviw">
+    Actual form here
+  </FormContainer>
 );
 
 export default AddReviewForm;

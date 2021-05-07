@@ -9,6 +9,7 @@ import TextInput from '../components/TextInput';
 import SubmitButton from '../components/SubmitButton';
 import ServerError from '../components/ServerError';
 import useLogin from '../util/hooks/useLogin';
+import FormContainer from '../components/FormContainer';
 
 const initialValues: SignUpValues = {
   username: '',
@@ -54,8 +55,7 @@ const SignUp: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center my-10 px-5 md:px-0 mx-auto max-w-md">
-      <div className="font-medium uppercase text-gray-800 text-2xl lg:text-3xl">Create account</div>
+    <FormContainer title="Create account">
       <Formik
         initialValues={initialValues}
         validationSchema={SignUpSchema}
@@ -71,7 +71,7 @@ const SignUp: React.FC = () => {
           </Form>
         )}
       </Formik>
-    </div>
+    </FormContainer>
   );
 };
 
