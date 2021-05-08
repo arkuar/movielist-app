@@ -17,7 +17,7 @@ export const errorHandler = (err: any, _req: Request, res: Response, next: NextF
   }
 
   if (err instanceof JsonWebTokenError) {
-    return res.status(401).send({ error: 'Invalid token' });
+    return res.status(401).send({ error: err.message });
   }
 
   if (err instanceof TokenExpiredError) {

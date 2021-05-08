@@ -1,7 +1,6 @@
-import { SECRET } from '@common/config';
-import { Token, NewReview } from '@common/types';
+import { NewReview } from '@common/types';
 import { NextFunction, Request, Response } from 'express';
-import { verify } from 'jsonwebtoken';
+import AuthService from '../util/AuthService';
 import Movie from '../models/movie';
 import User from '../models/user';
 import Review from '../models/review';
@@ -9,10 +8,8 @@ import Review from '../models/review';
 const createReview = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { body: { text, rating, movieId }, token } = req;
-    if (!token) {
-      return res.status(401).send({ error: 'Missing token' });
-    }
-    const decodedToken = verify(token, SECRET) as Token;
+
+    const decodedToken = AuthService.verifyToken(token);
 
     const user = await User.findById(decodedToken.id);
 

@@ -86,7 +86,7 @@ describe('POST /api/reviews', () => {
     const { body: { error } } = await api.post(baseUrl)
       .send(review)
       .expect(401);
-    expect(error).toContain('Invalid token');
+    expect(error).toContain('jwt malformed');
   });
 
   test('should return error if token is missing', async () => {
