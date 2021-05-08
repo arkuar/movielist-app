@@ -13,3 +13,15 @@
 .spinner {
   animation: spin 2s linear infinite
 }
+
+.selector__input > input {
+  @apply focus:ring-0 focus:shadow-none
+}
+
+.selector__value-container,  .selector__indicators, .selector__control {
+  @apply bg-gray-50 !important
+}
+
+.selector__control {
+  @apply border-solid border rounded-md p-1 border-black !important
+}
