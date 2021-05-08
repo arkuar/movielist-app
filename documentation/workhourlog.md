@@ -20,4 +20,5 @@
 |3.5|3.5|Add token extractor middleware. Create createReview functionality.
 |5.5|2|Add tests to Review API
 |7.5|4|Create AddReviewForm component. Start implementing backend service that communicates with OMDB API.
-| total | 55.5 | |
+|8.5|5|Create AuthService for backend. Create MovieSelect component for searching movies
+| total | 60.5 | |
