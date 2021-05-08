@@ -8,7 +8,7 @@ import {
 import FormContainer from '../components/FormContainer';
 import TextInput from '../components/TextInput';
 import SubmitButton from '../components/SubmitButton';
-import MovieSelect from '../components/MovieSelect';
+import MovieSelect from '../MovieSelector/MovieSelect';
 
 const initialValues: ReviewValues = {
   movie: '',

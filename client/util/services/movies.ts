@@ -90,9 +90,10 @@ const testResult = {
   totalResults: '344',
 };
 
-// eslint-disable-next-line arrow-body-style
-export const findMovies = async (title: string): Promise<SearchResponse> => {
+/* eslint-disable */
+export const findMovies = async (_title: string): Promise<SearchResponse> => {
   // const params = { title };
   // const response = await axios.get<SearchResponse>(`${basePath}/search`, { params });
   return testResult as unknown as SearchResponse;
-}
+};
+/* eslint-enable */
