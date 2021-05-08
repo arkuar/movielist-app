@@ -1,6 +1,6 @@
-import { ReviewValues } from '@common/types';
+import { ReviewValues, SearchResult } from '@common/types';
 import { Form, Formik } from 'formik';
-import React from 'react';
+import React, { useState } from 'react';
 import { PlusCircleIcon } from '@heroicons/react/outline';
 import {
   SchemaOf, object, string, number,
@@ -8,6 +8,7 @@ import {
 import FormContainer from '../components/FormContainer';
 import TextInput from '../components/TextInput';
 import SubmitButton from '../components/SubmitButton';
+import MovieSelect from '../components/MovieSelect';
 
 const initialValues: ReviewValues = {
   movie: '',
@@ -28,6 +29,8 @@ const ReviewSchema: SchemaOf<ReviewValues> = object({
 });
 
 const AddReviewForm: React.FC = () => {
+  const [movie, setMovie] = useState<SearchResult>();
+
   const onSubmit = (values: ReviewValues) => {
     // eslint-disable-next-line no-console
     console.log(values);
@@ -42,7 +45,18 @@ const AddReviewForm: React.FC = () => {
       >
         {() => (
           <Form className="mt-5 w-full">
-            <TextInput label="Movie" name="movie" type="text" required />
+            <MovieSelect
+              onSelect={setMovie}
+            />
+            {movie
+              ? (
+                <div>
+                  selected movie
+                  {movie.Title}
+                </div>
+              )
+              : null}
+            {/* <TextInput label="Movie" name="movie" type="text" required /> */}
             <TextInput label="Rating" name="rating" type="number" min="1" max="10" required />
             <TextInput label="Review" name="text" type="text" multiline required />
             <SubmitButton text="Create review" IconComponent={PlusCircleIcon} />

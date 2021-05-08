@@ -1,31 +1,10 @@
 import { OMDB_API_KEY } from '@common/config';
+import { SearchParams, SearchResponse } from '@common/types';
 import axios from 'axios';
 
 const OMDB_API = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&`;
 
-type ResultType = 'movie';
-
-type SearchType = ResultType;
-
-interface SearchResult {
-  Title: string;
-  Year: string;
-  imdbID: string;
-  Type: ResultType;
-  Poster: string;
-}
-
-interface SearchResponse {
-  Search: SearchResult[]
-  totalResults: number;
-}
-
-interface SearchParams {
-  s: string
-  type?: SearchType
-}
-
-const search = async (title: string) => {
+const search = async (title: string): Promise<SearchResponse> => {
   const params: SearchParams = {
     s: title,
     type: 'movie',

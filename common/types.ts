@@ -84,3 +84,25 @@ export interface Token {
   username: string;
   id: string;
 }
+
+export type ResultType = 'movie';
+
+export type SearchType = ResultType;
+
+export interface SearchResult {
+  Title: string;
+  Year: string;
+  imdbID: string;
+  Type: ResultType;
+  Poster: string;
+}
+
+export interface SearchResponse {
+  Search: SearchResult[]
+  totalResults: number;
+}
+
+export interface SearchParams {
+  s: string
+  type?: SearchType
+}
