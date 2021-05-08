@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { JsonWebTokenError, TokenExpiredError } from 'jsonwebtoken';
 import { Error } from 'mongoose';
+import { InputError } from '../util/InputError';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const errorHandler = (err: any, _req: Request, res: Response, next: NextFunction) => {
@@ -22,6 +23,10 @@ export const errorHandler = (err: any, _req: Request, res: Response, next: NextF
 
   if (err instanceof TokenExpiredError) {
     return res.status(401).send({ error: 'Token expired' });
+  }
+
+  if (err instanceof InputError) {
+    return res.status(401).send({ error: err.message });
   }
 
   return next(err);
