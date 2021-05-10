@@ -2,13 +2,18 @@ import { PostReview } from '@common/types';
 import Movie from '../server/models/movie';
 import User from '../server/models/user';
 import { connection } from 'mongoose';
-import { initialMovies, initialUser } from './helper';
+import axios from 'axios';
+import {
+  initialMovies, initialUser, movieFromOMDB, moviesInDb,
+} from './helper';
 import { agent as supertest } from 'supertest';
 import app = require('../app');
 
 const api = supertest(app);
 
 const baseUrl = '/api/reviews';
+
+jest.mock('axios');
 
 describe('POST /api/reviews', () => {
   let existingMovieId: string;
@@ -37,6 +42,29 @@ describe('POST /api/reviews', () => {
         .send(validReview)
         .expect(201)
         .expect('Content-Type', /json/);
+    });
+
+    test('should succesfully add review to a new movie', async () => {
+      const validReview: PostReview = {
+        movieId: 'validId',
+        rating: 9,
+        text: 'A true masterpiece!',
+      };
+
+      const mockedAxios = axios as jest.Mocked<typeof axios>;
+      mockedAxios.get.mockResolvedValue({ data: movieFromOMDB });
+
+      await api.post(baseUrl)
+        .send(validReview)
+        .expect(201)
+        .expect('Content-Type', /json/);
+
+      const updatedMovies = await moviesInDb();
+      expect(updatedMovies.length).toEqual(initialMovies.length + 1);
+
+      expect(mockedAxios.get).toHaveBeenCalled();
+      const latestMovie = updatedMovies.pop();
+      expect(latestMovie?.imdbId).toEqual(movieFromOMDB.imdbID);
     });
 
     test('should return error if rating is too low', async () => {

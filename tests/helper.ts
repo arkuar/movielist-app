@@ -1,4 +1,4 @@
-import { NewMovie, NewUser } from '@common/types';
+import { MovieDetails, NewMovie, NewUser } from '@common/types';
 import { hash } from 'bcrypt';
 import User from '../server/models/user';
 import Movie from '../server/models/movie';
@@ -36,6 +36,19 @@ const initialMovies: NewMovie[] = [
   },
 ];
 
+const movieFromOMDB: MovieDetails = {
+  Title: 'The Good, the Bad and the Ugly',
+  Year: '1966',
+  Runtime: '178 min',
+  Genre: 'Western',
+  Director: 'Sergio Leone',
+  Actors: 'Eli Wallach, Clint Eastwood, Lee Van Cleef, Aldo Giuffrè',
+  Plot: 'A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.',
+  imdbID: 'tt0060196',
+  Type: 'movie',
+  Poster: 'urltoposter',
+};
+
 const hashPassword = async (password: string): Promise<string> => {
   const hashedPassword = await hash(password, 10);
   return hashedPassword;
@@ -61,4 +74,5 @@ export {
   moviesInDb,
   initialUser,
   usersInDb,
+  movieFromOMDB,
 };
