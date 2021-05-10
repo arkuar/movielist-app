@@ -5,16 +5,18 @@ import axios from 'axios';
 const OMDB_API = `http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&`;
 
 const search = async (title: string): Promise<SearchResponse> => {
-  const params: SearchParams = {
-    s: title,
-    type: 'movie',
-  };
+  try {
+    const params: SearchParams = {
+      s: title,
+      type: 'movie',
+    };
 
-  const { data: { Search, totalResults } } = await axios.get<SearchResponse>(OMDB_API, { params });
-  return {
-    Search,
-    totalResults,
-  };
+    const { data } = await axios.get<SearchResponse>(OMDB_API, { params });
+
+    return data;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 export default {

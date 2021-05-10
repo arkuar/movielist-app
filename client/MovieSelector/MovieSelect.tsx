@@ -1,5 +1,5 @@
 import { SearchResult } from '@common/types';
-import React from 'react';
+import React, { useState } from 'react';
 import Select from 'react-select/async';
 import { ErrorMessage, useField } from 'formik';
 import debounce from 'debounce-promise';
@@ -12,25 +12,31 @@ interface MovieSelectProps {
   required?: boolean;
 }
 
-const loadOptions = debounce(async (inputValue: string) => {
-  if (inputValue.length < 3) {
-    return [];
-  }
-  // eslint-disable-next-line no-console
-  console.log(`Searching for ${inputValue}`);
-  const movies = await findMovies(inputValue);
-  return movies.Search;
-}, 500);
-
 const MovieSelect: React.FC<MovieSelectProps> = ({
   required, name,
 }) => {
-  const [,, helpers] = useField<string>(name);
+  const [, , helpers] = useField<string>(name);
+  const [error, setError] = useState<string>();
 
   const onChange = (value: SearchResult | null) => {
     if (value) {
       helpers.setValue(value.imdbID);
     }
+  };
+
+  const loadOptions = debounce(async (inputValue: string): Promise<SearchResult[]> => {
+    const movies = await findMovies(inputValue);
+    if (!movies.Response) {
+      setError(movies.Error);
+    }
+    return movies.Search;
+  }, 500);
+
+  const noOptionsMessage = (): string | null => {
+    if (error) {
+      return error;
+    }
+    return null;
   };
 
   return (
@@ -51,8 +57,8 @@ const MovieSelect: React.FC<MovieSelectProps> = ({
         onChange={onChange}
         onBlur={() => helpers.setTouched(true)}
         components={{ Option }}
-        defaultOptions
-        placeholder="Search movies"
+        placeholder="Search movie titles"
+        noOptionsMessage={noOptionsMessage}
       />
       <ErrorMessage name={name} component="div" className="text-red-500" />
     </>

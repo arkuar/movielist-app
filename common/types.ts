@@ -100,6 +100,8 @@ export interface SearchResult {
 export interface SearchResponse {
   Search: SearchResult[]
   totalResults: number;
+  Response: boolean;
+  Error?: string;
 }
 
 export interface SearchParams {
