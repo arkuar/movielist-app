@@ -104,7 +104,22 @@ export interface SearchResponse {
   Error?: string;
 }
 
+export interface MovieDetails {
+  Title: string;
+  Year: string;
+  Runtime: string;
+  Genre: string;
+  Director: string;
+  Actors: string;
+  Plot: string;
+  Poster: string;
+}
+
 export interface SearchParams {
   s: string
   type?: SearchType
+}
+
+export interface SearchByIDParams {
+  i: string;
 }
