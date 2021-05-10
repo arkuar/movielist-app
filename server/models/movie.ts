@@ -20,6 +20,18 @@ const schemaFields: SchemaFields<BaseMovie> = {
     type: [Types.ObjectId],
     ref: 'Review',
   },
+  imdbId: {
+    type: String,
+    required: true,
+    index: true,
+  },
+  director: {
+    type: String,
+    required: true,
+  },
+  genres: [String],
+  plot: String,
+  poster: String,
 };
 
 const movieSchema = new Schema(schemaFields, {

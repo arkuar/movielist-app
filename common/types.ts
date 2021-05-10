@@ -15,6 +15,11 @@ export interface BaseMovie {
   year: number;
   starring: string[];
   reviews: Review[]
+  imdbId: string;
+  poster?: string;
+  director: string;
+  genres?: string[];
+  plot?: string;
 }
 
 export interface MovieModel extends BaseMovie, Document {
@@ -104,15 +109,12 @@ export interface SearchResponse {
   Error?: string;
 }
 
-export interface MovieDetails {
-  Title: string;
-  Year: string;
+export interface MovieDetails extends SearchResult {
   Runtime: string;
   Genre: string;
   Director: string;
   Actors: string;
   Plot: string;
-  Poster: string;
 }
 
 export interface SearchParams {

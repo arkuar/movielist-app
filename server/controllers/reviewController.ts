@@ -1,9 +1,10 @@
-import { NewReview } from '@common/types';
+import { NewMovie, NewReview } from '@common/types';
 import { NextFunction, Request, Response } from 'express';
 import AuthService from '../util/AuthService';
 import Movie from '../models/movie';
 import User from '../models/user';
 import Review from '../models/review';
+import OMDBApi from '../util/OMDBApi';
 
 const createReview = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -17,23 +18,40 @@ const createReview = async (req: Request, res: Response, next: NextFunction) => 
       return res.status(400).send({ error: 'Invalid user' });
     }
 
-    const movie = await Movie.findById(movieId);
-
-    if (!movie) {
+    if (!movieId) {
       return res.status(400).send({ error: 'Invalid movie ID' });
+    }
+
+    // Check if there are existing reviews for the movie already
+    let storedMovie = await Movie.findOne({ imdbId: movieId });
+
+    if (!storedMovie) {
+      const movieDetails = await OMDBApi.fetchMovie(movieId);
+
+      const movie: NewMovie = {
+        title: movieDetails.Title,
+        year: +movieDetails.Year,
+        starring: movieDetails.Actors.split(','),
+        imdbId: movieDetails.imdbID,
+        poster: movieDetails.Poster,
+        director: movieDetails.Director,
+        genres: movieDetails.Genre.split(','),
+        plot: movieDetails.Plot,
+      };
+      storedMovie = await Movie.create(movie);
     }
 
     const review: NewReview = {
       text,
       rating,
       user: user._id,
-      movie: movie._id,
+      movie: storedMovie._id,
     };
 
     const savedReview = await Review.create(review);
 
-    movie.reviews.push(savedReview._id);
-    await movie.save();
+    storedMovie.reviews.push(savedReview._id);
+    await storedMovie.save();
 
     return res.status(201).send(savedReview);
   } catch (error) {
