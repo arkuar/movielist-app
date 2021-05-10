@@ -15,7 +15,7 @@ describe('POST /api/reviews', () => {
   beforeEach(async () => {
     await Movie.deleteMany();
     const movies = await Movie.create(initialMovies);
-    existingMovieId = movies[0].id;
+    existingMovieId = movies[0].imdbId;
   });
 
   describe('with existing user', () => {

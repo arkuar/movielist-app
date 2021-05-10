@@ -11,6 +11,8 @@ const initialMovies: NewMovie[] = [
       'Marlon Brando',
       'Al Pacino',
     ],
+    imdbId: 'tt0068646',
+    director: 'Francis Ford Coppola',
   },
   {
     title: 'The Dark Knight',
@@ -19,6 +21,8 @@ const initialMovies: NewMovie[] = [
       'Christian Bale',
       'Heath Ledger',
     ],
+    imdbId: 'tt0468569',
+    director: 'Christopher Nolan',
   },
   {
     title: 'Pulp Fiction',
@@ -27,6 +31,8 @@ const initialMovies: NewMovie[] = [
       'John Travolta',
       'Uma Thurman',
     ],
+    imdbId: 'tt0110912',
+    director: 'Quentin Tarantino',
   },
 ];
 
