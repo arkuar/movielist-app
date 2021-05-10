@@ -21,4 +21,5 @@
 |5.5|2|Add tests to Review API
 |7.5|4|Create AddReviewForm component. Start implementing backend service that communicates with OMDB API.
 |8.5|5|Create AuthService for backend. Create MovieSelect component for searching movies
-| total | 60.5 | |
+|10.5|4|Show error messages in MovieSelect component. Refactor createReview to use OMDb API and implement fetchMovie function to fetch details of a given movie. Fix tests
+| total | 64.5 | |
