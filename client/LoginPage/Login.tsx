@@ -34,8 +34,8 @@ const Login: React.FC = () => {
     try {
       await logIn(values);
       history.push('/');
-    } catch (error) {
-      const { data: message } = error.response;
+    } catch (err) {
+      const { error: message } = err.response.data;
       setStatus(message);
     }
   };

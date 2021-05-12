@@ -7,13 +7,13 @@ const schemaFields: SchemaFields<BaseReview> = {
   text: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: [5, 'Must be at least 5 characters long, got {VALUE}'],
   },
   rating: {
     type: Number,
     required: true,
-    min: 0,
-    max: 10,
+    min: [0, 'Must be a value between 0 and 10, got {VALUE}'],
+    max: [10, 'Must be a value between 0 and 10, got {VALUE}'],
   },
   user: {
     type: Types.ObjectId,
