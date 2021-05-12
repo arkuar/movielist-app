@@ -28,8 +28,8 @@ const Movie: React.FC = () => {
   }
 
   return (
-    <div className="border-2 m-0 md:m-5 flex flex-col items-center rounded flex-wrap">
-      <div className="flex flex-col md:flex-row w-full">
+    <div className="border-2 m-0 md:m-5 flex flex-col items-center rounded flex-wrap bg-gray-100">
+      <div className="flex flex-col md:flex-row w-full items-center md:items-stretch">
         {movie.poster && <img src={movie.poster} alt="Movie poster" className="rounded md:rounded-r-md" width="200" height="300" />}
         <div className="flex flex-col md:flex-row justify-between p-6 w-full">
           <MovieInfo
