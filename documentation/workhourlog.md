@@ -23,4 +23,5 @@
 |8.5|5|Create AuthService for backend. Create MovieSelect component for searching movies
 |10.5|4|Show error messages in MovieSelect component. Refactor createReview to use OMDb API and implement fetchMovie function to fetch details of a given movie. Fix tests
 |11.5|1|Style Movie component with movie details
-| total | 65.5 | |
+|12.5|4|Style and refactor Movie component. Add frontend service to send review form data to backend. Create ReviewList component.
+| total | 69.5 | |
