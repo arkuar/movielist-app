@@ -76,7 +76,7 @@ describe('POST /api/reviews', () => {
       const { body: { error } } = await api.post(baseUrl)
         .send(invalidReview)
         .expect(400);
-      expect(error).toContain('`rating` (-1) is less than minimum allowed value');
+      expect(error).toContain('Must be a value between 1 and 10, got -1');
     });
 
     test('should return error if rating is too high', async () => {
@@ -88,7 +88,7 @@ describe('POST /api/reviews', () => {
       const { body: { error } } = await api.post(baseUrl)
         .send(invalidReview)
         .expect(400);
-      expect(error).toContain('`rating` (11) is more than maximum allowed value ');
+      expect(error).toContain('Must be a value between 1 and 10, got 11');
     });
 
     test('should return error if review text is too short', async () => {
@@ -100,7 +100,7 @@ describe('POST /api/reviews', () => {
       const { body: { error } } = await api.post(baseUrl)
         .send(invalidReview)
         .expect(400);
-      expect(error).toContain('Path `text` (`text`) is shorter than the minimum allowed length');
+      expect(error).toContain('Must be at least 5 characters long');
     });
   });
 

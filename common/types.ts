@@ -40,6 +40,10 @@ export interface BaseUser {
 
 export interface UserModel extends BaseUser, Document { }
 
+export type User = Pick<UserModel, 'id' | SharedKeys<UserModel, BaseUser>>;
+
+export type NonSensitiveUser = Omit<User, 'passwordHash'>;
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type SchemaFields<T> = Record<keyof T, SchemaTypeOpts<any> | Schema | SchemaType>;
 
@@ -65,11 +69,14 @@ export type Icon = (props: React.ComponentProps<'svg'>) => JSX.Element;
 export interface BaseReview {
   text: string;
   rating: number;
-  movie: Movie['id'];
-  user: string;
+  movie: Movie;
+  user: NonSensitiveUser;
 }
 
-export type NewReview = BaseReview;
+export interface NewReview extends Omit<BaseReview, 'movie' | 'user'> {
+  movie: string;
+  user: string;
+}
 
 export type Review = Pick<ReviewModel, 'id' | SharedKeys<ReviewModel, BaseReview>>;
 
@@ -77,7 +84,7 @@ export interface ReviewModel extends BaseReview, Document {
   id: string;
 }
 
-export type ReviewValues = Omit<BaseReview, 'user'>;
+export type ReviewValues = Omit<NewReview, 'user'>;
 
 export interface PostReview {
   rating: number;
