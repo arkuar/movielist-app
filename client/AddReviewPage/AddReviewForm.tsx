@@ -5,10 +5,13 @@ import { PlusCircleIcon } from '@heroicons/react/outline';
 import {
   SchemaOf, object, string, number,
 } from 'yup';
+import { useHistory } from 'react-router-dom';
 import FormContainer from '../components/FormContainer';
 import TextInput from '../components/TextInput';
 import SubmitButton from '../components/SubmitButton';
 import MovieSelect from '../MovieSelector/MovieSelect';
+import reviewsService from '../util/services/reviews';
+import useToaster from '../util/hooks/useToaster';
 
 const initialValues: ReviewValues = {
   movie: '',
@@ -29,31 +32,41 @@ const ReviewSchema: SchemaOf<ReviewValues> = object({
 });
 
 const AddReviewForm: React.FC = () => {
-  const onSubmit = (values: ReviewValues) => {
-    // eslint-disable-next-line no-console
-    console.log(values);
+  const history = useHistory();
+  const { error } = useToaster();
+
+  const onSubmit = async (values: ReviewValues) => {
+    try {
+      const review = await reviewsService.createReview(values);
+      history.push(`/movies/${review.movie}`);
+    } catch (err) {
+      const { error: message } = err.response.data;
+      error(message);
+    }
   };
 
   return (
-    <FormContainer title="Create reviw">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={ReviewSchema}
-        onSubmit={onSubmit}
-      >
-        {() => (
-          <Form className="mt-5 w-full">
-            <MovieSelect
-              name="movie"
-              required
-            />
-            <TextInput label="Rating" name="rating" type="number" min="1" max="10" required />
-            <TextInput label="Review" name="text" type="text" multiline required />
-            <SubmitButton text="Create review" IconComponent={PlusCircleIcon} />
-          </Form>
-        )}
-      </Formik>
-    </FormContainer>
+    <>
+      <FormContainer title="Create reviw">
+        <Formik
+          initialValues={initialValues}
+          validationSchema={ReviewSchema}
+          onSubmit={onSubmit}
+        >
+          {() => (
+            <Form className="mt-5 w-full">
+              <MovieSelect
+                name="movie"
+                required
+              />
+              <TextInput label="Rating" name="rating" type="number" min="1" max="10" required />
+              <TextInput label="Review" name="text" type="text" multiline required />
+              <SubmitButton text="Create review" IconComponent={PlusCircleIcon} />
+            </Form>
+          )}
+        </Formik>
+      </FormContainer>
+    </>
   );
 };
 

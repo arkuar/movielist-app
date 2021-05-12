@@ -1,21 +1,20 @@
 import { Movie, SearchResponse } from '@common/types';
 import axios from './api';
 
-const basePath = '/api/movies';
+const baseUrl = '/api/movies';
 
-// eslint-disable-next-line import/prefer-default-export
 export const getMovies = async (): Promise<Movie[]> => {
-  const response = await axios.get<Movie[]>(basePath);
+  const response = await axios.get<Movie[]>(baseUrl);
   return response.data;
 };
 
 export const getMovie = async (id: string): Promise<Movie> => {
-  const response = await axios.get<Movie>(`${basePath}/${id}`);
+  const response = await axios.get<Movie>(`${baseUrl}/${id}`);
   return response.data;
 };
 
 export const findMovies = async (title: string): Promise<SearchResponse> => {
   const params = { title };
-  const response = await axios.get<SearchResponse>(`${basePath}/search`, { params });
+  const response = await axios.get<SearchResponse>(`${baseUrl}/search`, { params });
   return response.data;
 };
