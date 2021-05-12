@@ -1,4 +1,5 @@
 import { Movie as IMovie } from '@common/types';
+import { AnnotationIcon, StarIcon } from '@heroicons/react/outline';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import Loading from '../components/Loading';
@@ -58,17 +59,23 @@ const Movie: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-row md:flex-col justify-evenly mt-4 md:mt-0">
-            <div className="flex flex-col md:flex-row items-center md:items-baseline">
-              <h2 className="text-lg mr-2 font-semibold">Reviews</h2>
-              <p>{movie.reviews.length}</p>
+            <div className="flex flex-col items-center">
+              <h2 className="text-lg font-semibold">Reviews</h2>
+              <span className="relative">
+                <AnnotationIcon className="absolute w-6 h-6 left-0" />
+                <p className="ml-10">{movie.reviews.length}</p>
+              </span>
             </div>
-            <div className="flex flex-col md:flex-row items-center md:items-baseline">
-              <h2 className="text-lg mr-2 font-semibold">Average rating</h2>
-              <p>
-                {movie.reviews.reduce(
-                  (sum, current) => sum + current.rating, 0,
-                ) / movie.reviews.length}
-              </p>
+            <div className="flex flex-col items-center">
+              <h2 className="text-lg font-semibold">Rating</h2>
+              <span className="relative">
+                <StarIcon className="absolute w-6 h-6 left-0" />
+                <p className="ml-10">
+                  {movie.reviews.reduce(
+                    (sum, current) => sum + current.rating, 0,
+                  ) / movie.reviews.length}
+                </p>
+              </span>
             </div>
           </div>
         </div>

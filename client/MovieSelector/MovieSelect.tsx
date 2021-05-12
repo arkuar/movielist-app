@@ -26,7 +26,7 @@ const MovieSelect: React.FC<MovieSelectProps> = ({
 
   const loadOptions = debounce(async (inputValue: string): Promise<SearchResult[]> => {
     const movies = await findMovies(inputValue);
-    if (!movies.Response) {
+    if (movies.Error) {
       setError(movies.Error);
     }
     return movies.Search;
