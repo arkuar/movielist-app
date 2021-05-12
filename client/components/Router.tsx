@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import MovieList from '../MovieListPage/MovieList';
-import Movie from '../MovieListPage/Movie';
+import Movie from '../SingleMoviePage/Movie';
 import Login from '../LoginPage/Login';
 import SignUp from '../SignUpPage/SignUp';
 import useAuth from '../util/hooks/useAuth';
