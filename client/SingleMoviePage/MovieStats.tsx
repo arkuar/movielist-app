@@ -5,14 +5,22 @@ import MovieStat from './MovieStat';
 
 type MovieStatsProps = Pick<Movie, 'reviews'>;
 
-const countAverage = (arr: Review[]) => arr.reduce(
-  (sum, curr) => sum + curr.rating, 0,
-) / arr.length;
+const countAverage = (arr: Review[]) => {
+  const value = arr.reduce((sum, curr) => sum + curr.rating, 0) / arr.length;
+  if (Number.isNaN(value)) {
+    return 'N/A';
+  }
+  return value;
+};
 
 const MovieStats: React.FC<MovieStatsProps> = ({ reviews }) => (
   <div className="flex flex-row md:flex-col justify-evenly mt-4 md:mt-0">
     <MovieStat name="Reviews" value={reviews.length} IconComponent={AnnotationIcon} />
-    <MovieStat name="Rating" value={countAverage(reviews)} IconComponent={StarIcon} />
+    <MovieStat
+      name="Rating"
+      value={countAverage(reviews)}
+      IconComponent={StarIcon}
+    />
   </div>
 );
 

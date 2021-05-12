@@ -23,7 +23,7 @@ const ReviewSchema: SchemaOf<ReviewValues> = object({
   movie: string()
     .required('Movie is required'),
   rating: number()
-    .min(0)
+    .min(1)
     .max(10)
     .required('Rating is required'),
   text: string()

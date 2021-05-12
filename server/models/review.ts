@@ -12,8 +12,8 @@ const schemaFields: SchemaFields<BaseReview> = {
   rating: {
     type: Number,
     required: true,
-    min: [0, 'Must be a value between 0 and 10, got {VALUE}'],
-    max: [10, 'Must be a value between 0 and 10, got {VALUE}'],
+    min: [1, 'Must be a value between 1 and 10, got {VALUE}'],
+    max: [10, 'Must be a value between 1 and 10, got {VALUE}'],
   },
   user: {
     type: Types.ObjectId,

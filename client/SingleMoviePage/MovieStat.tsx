@@ -3,8 +3,8 @@ import React from 'react';
 
 interface MovieStatProps {
   name: string;
-  value: number;
-  IconComponent: Icon;
+  value: number | string;
+  IconComponent?: Icon;
 }
 
 const MovieStat: React.FC<MovieStatProps> = ({
@@ -13,8 +13,8 @@ const MovieStat: React.FC<MovieStatProps> = ({
   <div className="flex flex-col items-center">
     <h2 className="text-lg font-semibold">{name}</h2>
     <span className="relative">
-      <IconComponent className="absolute w-6 h-6 left-0" />
-      <p className="ml-10">{value}</p>
+      {IconComponent && <IconComponent className="absolute w-6 h-6 left-0" />}
+      <p className="ml-8">{value}</p>
     </span>
   </div>
 );
