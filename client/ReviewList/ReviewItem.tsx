@@ -2,6 +2,7 @@ import { Review } from '@common/types';
 import { TrashIcon } from '@heroicons/react/outline';
 import { StarIcon } from '@heroicons/react/solid';
 import React, { createRef, useLayoutEffect, useState } from 'react';
+import useAuth from '../util/hooks/useAuth';
 
 interface ReviewItemProps {
   review: Review;
@@ -11,6 +12,7 @@ const ReviewItem: React.FC<ReviewItemProps> = ({ review }) => {
   const ref = createRef<HTMLParagraphElement>();
   const [showMore, setShowMore] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [{ username }] = useAuth();
 
   useLayoutEffect(() => {
     if (ref.current && (ref.current.clientWidth < ref.current.scrollWidth
@@ -45,10 +47,13 @@ const ReviewItem: React.FC<ReviewItemProps> = ({ review }) => {
             </button>
           )}
       </div>
-      <button className="items-center border-2 mt-5 md:mt-0 md:ml-auto flex justify-center bg-red-500 hover:bg-red-700 p-2 rounded-xl text-white font-medium uppercase transition-colors" type="button">
-        <TrashIcon className="w-5 h-5 left" />
-        <p>Delete</p>
-      </button>
+      {username === review.user.username
+        && (
+        <button className="items-center border-2 mt-5 md:mt-0 md:ml-auto flex justify-center bg-red-500 hover:bg-red-700 p-2 rounded-xl text-white font-medium uppercase transition-colors" type="button">
+          <TrashIcon className="w-5 h-5 left" />
+          <p>Delete</p>
+        </button>
+        )}
     </div>
   );
 };
