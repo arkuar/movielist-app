@@ -24,4 +24,5 @@
 |10.5|4|Show error messages in MovieSelect component. Refactor createReview to use OMDb API and implement fetchMovie function to fetch details of a given movie. Fix tests
 |11.5|1|Style Movie component with movie details
 |12.5|4|Style and refactor Movie component. Add frontend service to send review form data to backend. Create ReviewList component.
-| total | 69.5 | |
+|13.5|6.5|Create and style ReviewItem component. Refactor styling for single movie page. Create endpoint for deleting reviews.
+| total | 76 | |
