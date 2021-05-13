@@ -1,18 +1,16 @@
 import { Review } from '@common/types';
 import React from 'react';
+import ReviewItem from './ReviewItem';
 
 interface ReviewListProps {
   reviews: Review[];
 }
 
 const ReviewList: React.FC<ReviewListProps> = ({ reviews }) => (
-  <div>
+  <div className="m-0 md:m-5">
+    <h2 className="font-semibold text-xl">Reviews</h2>
     {reviews.map((r) => (
-      <div key={r.id}>
-        <p>{r.text}</p>
-        <p>{r.rating}</p>
-        <p>{r.user.name || r.user.username}</p>
-      </div>
+      <ReviewItem key={r.id} review={r} />
     ))}
   </div>
 );

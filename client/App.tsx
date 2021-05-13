@@ -6,7 +6,7 @@ import Router from './components/Router';
 import { AuthProvider, authReducer } from './util/contexts/index';
 import 'react-toastify/dist/ReactToastify.css';
 
-toast.configure({ autoClose: 5000, limit: 5 });
+toast.configure({ autoClose: 5000, limit: 5, pauseOnFocusLoss: false });
 
 const App: React.FC = () => (
   <AuthProvider reducer={authReducer}>
