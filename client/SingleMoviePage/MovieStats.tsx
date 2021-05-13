@@ -14,7 +14,7 @@ const countAverage = (arr: Review[]) => {
 };
 
 const MovieStats: React.FC<MovieStatsProps> = ({ reviews }) => (
-  <div className="flex flex-row md:flex-col justify-evenly mt-4 md:mt-0">
+  <div className="flex flex-row md:flex-col justify-evenly md:mr-10">
     <MovieStat name="Reviews" value={reviews.length} IconComponent={AnnotationIcon} />
     <MovieStat
       name="Rating"

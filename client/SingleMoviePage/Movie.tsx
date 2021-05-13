@@ -30,10 +30,13 @@ const Movie: React.FC = () => {
 
   return (
     <>
-      <div className="border-2 md:m-5 flex flex-col items-center rounded flex-wrap bg-gray-100 border-gray-400">
+      <div className="border-b-2 md:border-2 md:m-5 flex flex-col items-center md:rounded flex-wrap bg-gray-100 border-gray-400">
         <div className="flex flex-col md:flex-row w-full items-center md:items-stretch">
           {movie.poster && <img src={movie.poster} alt="Movie poster" className="rounded md:rounded-r-md" width="200" height="300" />}
-          <div className="flex flex-col md:flex-row justify-between p-6 w-full">
+          <div className="flex flex-col md:flex-row pt-0 md:pt-6 p-6 mt-2 md:mt-0 w-full">
+            <MovieStats
+              reviews={movie.reviews}
+            />
             <MovieInfo
               title={movie.title}
               year={movie.year}
@@ -42,13 +45,10 @@ const Movie: React.FC = () => {
               starring={movie.starring}
               plot={movie.plot}
             />
-            <MovieStats
-              reviews={movie.reviews}
-            />
           </div>
         </div>
       </div>
-      <ReviewList reviews={movie.reviews} />
+      {movie.reviews.length > 0 && <ReviewList reviews={movie.reviews} />}
     </>
   );
 };

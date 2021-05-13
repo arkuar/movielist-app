@@ -6,7 +6,7 @@ type MovieInfoProps = Pick<Movie, 'title' | 'year' | 'genres' | 'plot' | 'direct
 const MovieInfo: React.FC<MovieInfoProps> = ({
   title, year, genres, plot, director, starring,
 }) => (
-  <div className="flex flex-col m-2 justify-between p-0 md:pr-32">
+  <div className="flex flex-col justify-between p-2">
     <div>
       <h1 className="text-2xl font-semibold text-gray-800">{title}</h1>
       <p className="text-sm font-light">

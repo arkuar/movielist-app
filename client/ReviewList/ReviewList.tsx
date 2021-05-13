@@ -8,7 +8,7 @@ interface ReviewListProps {
 
 const ReviewList: React.FC<ReviewListProps> = ({ reviews }) => (
   <div className="my-5 md:m-5">
-    <h2 className="font-semibold text-xl">Reviews</h2>
+    <h2 className="font-semibold text-xl ml-5">Reviews</h2>
     {reviews.map((r) => (
       <ReviewItem key={r.id} review={r} />
     ))}
