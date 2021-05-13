@@ -69,8 +69,8 @@ export type Icon = (props: React.ComponentProps<'svg'>) => JSX.Element;
 export interface BaseReview {
   text: string;
   rating: number;
-  movie: Movie;
-  user: NonSensitiveUser;
+  movie: Movie | string;
+  user: NonSensitiveUser | string;
 }
 
 export interface NewReview extends Omit<BaseReview, 'movie' | 'user'> {
@@ -78,7 +78,10 @@ export interface NewReview extends Omit<BaseReview, 'movie' | 'user'> {
   user: string;
 }
 
-export type Review = Pick<ReviewModel, 'id' | SharedKeys<ReviewModel, BaseReview>>;
+export interface Review extends Pick<ReviewModel, 'id' | SharedKeys<ReviewModel, BaseReview>> {
+  movie: Movie;
+  user: NonSensitiveUser;
+}
 
 export interface ReviewModel extends BaseReview, Document {
   id: string;
