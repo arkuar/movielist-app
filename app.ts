@@ -6,7 +6,9 @@ import { inDevelopment, MONGODB_URI } from '@common/config';
 
 const app = express();
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true,
+})
   .then(() => {
     console.log('Connected to MongoDB');
   });

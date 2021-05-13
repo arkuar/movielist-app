@@ -59,6 +59,30 @@ const createReview = async (req: Request, res: Response, next: NextFunction) => 
   }
 };
 
+const deleteReview = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { id } = req.body;
+    if (!id) {
+      return res.status(400).send({ error: 'Missing review ID' });
+    }
+    const review = await Review.findById(id);
+    if (!review) {
+      return res.status(404).send({ error: 'Review not found' });
+    }
+
+    const movie = await Movie.findById(review.movie);
+    if (!movie) {
+      return res.status(404).send({ error: 'Movie for the review could not be found' });
+    }
+
+    await review.remove();
+    return res.status(204).end();
+  } catch (error) {
+    return next(error);
+  }
+};
+
 export {
   createReview,
+  deleteReview,
 };

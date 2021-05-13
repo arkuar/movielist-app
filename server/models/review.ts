@@ -25,7 +25,7 @@ const schemaFields: SchemaFields<BaseReview> = {
   },
 };
 
-const reviewSchema = new Schema(schemaFields, {
+const reviewSchema = new Schema<ReviewModel>(schemaFields, {
   toJSON: {
     transform: (_doc: Document, returnedObj: Partial<ReviewModel>) => {
       const modifiedObj = returnedObj;
@@ -35,6 +35,11 @@ const reviewSchema = new Schema(schemaFields, {
       return modifiedObj;
     },
   },
+});
+
+// eslint-disable-next-line func-names
+reviewSchema.post('remove', function (doc: ReviewModel, next) {
+  this.model('Movie').findByIdAndUpdate(doc.movie, { $pull: { reviews: doc._id } }, {}, next);
 });
 
 const Review = model<ReviewModel>('Review', reviewSchema);
