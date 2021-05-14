@@ -5,6 +5,7 @@ import Movie from '../models/movie';
 import User from '../models/user';
 import Review from '../models/review';
 import OMDBApi from '../util/OMDBApi';
+import { isObjectId } from '../util/typeguards';
 
 const createReview = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -71,7 +72,8 @@ const deleteReview = async (req: Request, res: Response, next: NextFunction) => 
     if (!review) {
       return res.status(404).send({ error: 'Review not found' });
     }
-    if (review.user !== decodedToken.id) {
+
+    if (!(isObjectId(review.user) && review.user.toHexString() === decodedToken.id)) {
       return res.status(401).send({ error: 'Not allowed' });
     }
     await review.remove();

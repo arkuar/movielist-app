@@ -5,7 +5,11 @@ import { getMovie } from '../util/services/movies';
 import ReviewList from '../ReviewList/ReviewList';
 import MovieInfo from './MovieInfo';
 import MovieStats from './MovieStats';
-import { movieReducer, MovieState, setMovie } from '../util/reducers';
+import {
+  movieReducer, MovieState, removeReview, setMovie,
+} from '../util/reducers';
+import reviewsService from '../util/services/reviews';
+import useToaster from '../util/hooks/useToaster';
 
 const initialState: MovieState = {
   movie: undefined,
@@ -16,13 +20,14 @@ const Movie: React.FC = () => {
   const history = useHistory();
   const { id } = useParams<{ id: string }>();
   const [{ movie, reviews }, dispatch] = useReducer(movieReducer, initialState);
+  const { error, success } = useToaster();
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
         const result = await getMovie(id);
         dispatch(setMovie(result));
-      } catch (error) {
+      } catch (err) {
         history.push('/');
       }
     };
@@ -30,8 +35,17 @@ const Movie: React.FC = () => {
   }, [id, history]);
 
   const onDeleteClick = async (reviewId: string) => {
-    console.log(reviewId);
-  }
+    try {
+      if (window.confirm('Delete review?')) {
+        await reviewsService.deleteReview(reviewId);
+        dispatch(removeReview(reviewId));
+        success('Review deleted succesfully!');
+      }
+    } catch (err) {
+      const { error: message } = err.response.data;
+      error(message);
+    }
+  };
 
   if (!movie) {
     return <Loading />;

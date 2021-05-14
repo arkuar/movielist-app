@@ -1,5 +1,5 @@
 import {
-  Schema, SchemaType, SchemaTypeOpts, Document,
+  Schema, SchemaType, SchemaTypeOpts, Document, PopulatedDoc,
 } from 'mongoose';
 import React from 'react';
 
@@ -69,8 +69,8 @@ export type Icon = (props: React.ComponentProps<'svg'>) => JSX.Element;
 export interface BaseReview {
   text: string;
   rating: number;
-  movie: Movie | string;
-  user: NonSensitiveUser | string;
+  movie: Movie;
+  user: NonSensitiveUser | PopulatedDoc<BaseUser>;
 }
 
 export interface NewReview extends Omit<BaseReview, 'movie' | 'user'> {
