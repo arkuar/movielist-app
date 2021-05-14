@@ -63,7 +63,7 @@ const deleteReview = async (req: Request, res: Response, next: NextFunction) => 
   try {
     const decodedToken = AuthService.verifyToken(req.token);
 
-    const { id } = req.body;
+    const { id } = req.params;
     if (!id) {
       return res.status(400).send({ error: 'Missing review ID' });
     }

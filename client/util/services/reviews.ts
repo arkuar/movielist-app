@@ -8,6 +8,11 @@ const createReview = async ({ text, rating, movie }: ReviewValues): Promise<Revi
   return response.data;
 };
 
+const deleteReview = async (id: string): Promise<void> => {
+  await axios.delete(`${baseUrl}/${id}`);
+};
+
 export default {
   createReview,
+  deleteReview,
 };
