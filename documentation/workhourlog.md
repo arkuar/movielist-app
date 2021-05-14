@@ -25,4 +25,5 @@
 |11.5|1|Style Movie component with movie details
 |12.5|4|Style and refactor Movie component. Add frontend service to send review form data to backend. Create ReviewList component.
 |13.5|6.5|Create and style ReviewItem component. Refactor styling for single movie page. Create endpoint for deleting reviews.
-| total | 76 | |
+|14.5|6.5|Add service to frontend for handling review deletion. Refactor state handling for movie to use useReducer hook. Create functionality for delete button. Start working on confirmation dialog.
+| total | 82.5 | |
