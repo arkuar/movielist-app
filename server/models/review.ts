@@ -38,7 +38,7 @@ const reviewSchema = new Schema<ReviewModel>(schemaFields, {
 });
 
 // eslint-disable-next-line func-names
-reviewSchema.post('remove', function (doc: ReviewModel, next) {
+reviewSchema.post('remove', function (doc, next) {
   this.model('Movie').findByIdAndUpdate(doc.movie, { $pull: { reviews: doc._id } }, {}, next);
 });
 
