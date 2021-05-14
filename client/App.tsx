@@ -3,7 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import NavBar from './components/NavBar';
 import Router from './components/Router';
-import { AuthProvider, authReducer } from './util/contexts/index';
+import { AuthProvider } from './util/contexts';
+import { authReducer } from './util/reducers';
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure({ autoClose: 5000, limit: 5, pauseOnFocusLoss: false });

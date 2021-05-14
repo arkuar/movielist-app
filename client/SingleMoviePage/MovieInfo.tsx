@@ -1,10 +1,14 @@
 import { Movie } from '@common/types';
 import React from 'react';
 
-type MovieInfoProps = Pick<Movie, 'title' | 'year' | 'genres' | 'plot' | 'director' | 'starring'>;
+interface MovieInfoProps {
+  movie: Omit<Movie, 'reviews'>;
+}
 
 const MovieInfo: React.FC<MovieInfoProps> = ({
-  title, year, genres, plot, director, starring,
+  movie: {
+    title, year, genres, plot, director, starring,
+  },
 }) => (
   <div className="flex flex-col justify-between p-2">
     <div>
@@ -15,7 +19,7 @@ const MovieInfo: React.FC<MovieInfoProps> = ({
         {year}
       </p>
       <h2 className="text-sm font-light">
-        {genres?.join(', ')}
+        {genres && genres.join(', ')}
       </h2>
     </div>
     <div className="flex-col mt-4 md:m-0">
@@ -25,7 +29,7 @@ const MovieInfo: React.FC<MovieInfoProps> = ({
       </div>
       <div className="flex flex-col md:flex-row items-baseline flex-wrap">
         <h2 className="text-lg font-semibold mr-2">Starring</h2>
-        <p>{starring.join(', ')}</p>
+        <p>{starring && starring.join(', ')}</p>
       </div>
       <div className="flex flex-col md:flex-row items-baseline flex-wrap">
         <h2 className="text-lg font-semibold mr-2">Director</h2>

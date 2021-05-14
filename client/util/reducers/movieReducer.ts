@@ -1,7 +1,7 @@
 import { Movie, Review } from '@common/types';
 
 export type MovieState = {
-  movie: Omit<Movie, 'reviews'>,
+  movie: Omit<Movie, 'reviews'> | undefined,
   reviews: Review[]
 };
 

@@ -1,5 +1,5 @@
 import { LoginValues } from '@common/types';
-import { setUser } from '../contexts';
+import { setUser } from '../reducers';
 import loginService from '../services/login';
 import useAuth from './useAuth';
 

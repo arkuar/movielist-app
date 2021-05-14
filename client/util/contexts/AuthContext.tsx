@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import useToaster from '../hooks/useToaster';
 import { deleteAuthHeader, setAuthHeader } from '../services/api';
-import { AuthAction, AuthState } from './reducers';
+import { AuthAction, AuthState } from '../reducers';
 
 const currentUser = localStorage.getItem('userToken');
 

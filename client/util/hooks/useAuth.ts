@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { AuthAction, AuthContext, AuthState } from '../contexts';
+import { AuthContext } from '../contexts';
+import { AuthAction, AuthState } from '../reducers';
 
 const useAuth = (): [AuthState, React.Dispatch<AuthAction>] => {
   const authContext = useContext(AuthContext);
