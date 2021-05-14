@@ -47,7 +47,7 @@ const AddReviewForm: React.FC = () => {
 
   return (
     <>
-      <FormContainer title="Create reviw">
+      <FormContainer title="Create review">
         <Formik
           initialValues={initialValues}
           validationSchema={ReviewSchema}

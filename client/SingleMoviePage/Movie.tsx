@@ -36,11 +36,9 @@ const Movie: React.FC = () => {
 
   const onDeleteClick = async (reviewId: string) => {
     try {
-      if (window.confirm('Delete review?')) {
-        await reviewsService.deleteReview(reviewId);
-        dispatch(removeReview(reviewId));
-        success('Review deleted succesfully!');
-      }
+      await reviewsService.deleteReview(reviewId);
+      dispatch(removeReview(reviewId));
+      success('Review deleted succesfully!');
     } catch (err) {
       const { error: message } = err.response.data;
       error(message);
