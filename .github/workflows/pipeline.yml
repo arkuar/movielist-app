@@ -35,6 +35,6 @@ jobs:
       with:
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
         heroku_app_name: arkuar-movielist
-        healthcheck: https://arkuar-movielist/ping
+        healthcheck: https://arkuar-movielist.herokuapp.com/ping
         checkstring: "pong"
         rollbackonhealthcheckfailed: true
