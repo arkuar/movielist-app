@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import OMDBApi from '../util/OMDBApi';
 import Movie from '../models/movie';
+import AuthService from '../util/AuthService';
 
 const getMovies = async (_req: Request, res: Response): Promise<void> => {
   const movies = await Movie.find({});
@@ -26,6 +27,7 @@ const getMovie = async (req: Request, res: Response, next: NextFunction): Promis
 
 const findMovies = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    AuthService.verifyToken(req.token);
     const { title } = req.query;
     if (typeof title !== 'string') {
       throw new Error(`Error parsing title ${title}`);
