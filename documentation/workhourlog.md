@@ -26,4 +26,5 @@
 |12.5|4|Style and refactor Movie component. Add frontend service to send review form data to backend. Create ReviewList component.
 |13.5|6.5|Create and style ReviewItem component. Refactor styling for single movie page. Create endpoint for deleting reviews.
 |14.5|7.5|Add service to frontend for handling review deletion. Refactor state handling for movie to use useReducer hook. Create functionality for delete button. Add confirmation dialog.
-| total | 83.5 | |
+|15.5|5|Refactor Dialog control to separate DialogProvider. Style navbar to fit mobile screens. Deploy to heroku
+| total | 88.5 | |
