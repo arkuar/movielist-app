@@ -30,3 +30,11 @@ jobs:
       run: npm test
     - name: Build project
       run: npm run build --if-present
+    - name: Deploy to heroku
+      uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: arkuar-movielist
+        healthcheck: https://arkuar-movielist/ping
+        checkstring: "pong"
+        rollbackonhealthcheckfailed: true
