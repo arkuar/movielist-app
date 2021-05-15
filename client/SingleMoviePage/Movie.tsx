@@ -10,6 +10,7 @@ import {
 } from '../util/reducers';
 import reviewsService from '../util/services/reviews';
 import useToaster from '../util/hooks/useToaster';
+import useDialog from '../util/hooks/useDialog';
 
 const initialState: MovieState = {
   movie: undefined,
@@ -21,6 +22,7 @@ const Movie: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [{ movie, reviews }, dispatch] = useReducer(movieReducer, initialState);
   const { error, success } = useToaster();
+  const confirm = useDialog();
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -36,6 +38,10 @@ const Movie: React.FC = () => {
 
   const onDeleteClick = async (reviewId: string) => {
     try {
+      await confirm({
+        title: 'Delete review',
+        description: 'Are you sure you want to delete this review?',
+      });
       await reviewsService.deleteReview(reviewId);
       dispatch(removeReview(reviewId));
       success('Review deleted succesfully!');

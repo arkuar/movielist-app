@@ -135,3 +135,9 @@ export interface SearchParams {
 export interface SearchByIDParams {
   i: string;
 }
+
+export interface DialogOptions {
+  title: string;
+  description: string;
+  catchCancel?: boolean;
+}

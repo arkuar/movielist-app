@@ -15,10 +15,11 @@ module.exports = {
     "@typescript-eslint"
   ],
   rules: {
+    "no-spaced-func": "off",
     "react/prop-types": "off",
     "react/jsx-uses-react": "off",
     "react/jsx-props-no-spreading": ["error", {
-      "exceptions": ["input", "textarea", "components.Option"]
+      "exceptions": ["input", "textarea", "components.Option", "ConfirmationDialog"]
     }],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/label-has-associated-control": [ "error", {
