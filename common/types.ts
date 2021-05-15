@@ -141,3 +141,10 @@ export interface DialogOptions {
   description: string;
   catchCancel?: boolean;
 }
+
+export interface Route {
+  title: string;
+  authRequired: boolean;
+  path: string;
+  exact?: boolean;
+}

@@ -1,7 +1,24 @@
+import { Route } from '@common/types';
+import { Menu } from '@headlessui/react';
+import { MenuIcon } from '@heroicons/react/outline';
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../util/hooks/useAuth';
 import { clearUser } from '../util/reducers';
+
+const routes: Route[] = [
+  {
+    title: 'Movie list',
+    authRequired: false,
+    path: '/',
+    exact: true,
+  },
+  {
+    title: 'Create review',
+    authRequired: true,
+    path: '/createreview',
+  },
+];
 
 const NavBar: React.FC = () => {
   const [{ username }, dispatch] = useAuth();
@@ -10,28 +27,53 @@ const NavBar: React.FC = () => {
     dispatch(clearUser());
   };
 
+  const buildRoutes = () => routes.map((r) => {
+    const el = <NavLink key={r.title} exact={r.exact} to={r.path} className="router" activeClassName="selected">{r.title}</NavLink>;
+    if (!r.authRequired || (r.authRequired && username)) {
+      return el;
+    }
+    return null;
+  });
+
   return (
     <div className="bg-gray-700">
-      <div className="px-2 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
-          <div className="flex-1 flex items-center justify-start">
+          <div className="sm:hidden text-white">
+            <Menu as="div" className="relative inline-block text-left">
+              <div className="inline-flex justify-center w-full px-4 py-2">
+                <Menu.Button>
+                  <MenuIcon className="h-6 w-6" />
+                </Menu.Button>
+              </div>
+              <Menu.Items className="absolute left-0 w-56 mt-2 bg-gray-700 rounded-md shadow-lg ring-2 ring-black ring-opacity-5 focus:outline-none">
+                <div className="p-2 space-y-1 text-gray-800">
+                  {buildRoutes().map((item) => (
+                    item && (
+                      <Menu.Item as="div" key={item.key}>
+                        {item}
+                      </Menu.Item>
+                    )
+                  ))}
+                </div>
+              </Menu.Items>
+            </Menu>
+          </div>
+          <div className="hidden sm:flex items-center justify-start">
             <div className="flex space-x-4">
-              <NavLink exact to="/" className="router" activeClassName="selected">Movie list</NavLink>
-              {username
-                ? <NavLink to="/createreview" className="router" activeClassName="selected">Create review</NavLink>
-                : null}
+              {buildRoutes()}
             </div>
           </div>
           <div className="flex-1 flex items-center justify-end">
             {!username
               ? (
                 <>
-                  <Link to="/login" className="router">
+                  <NavLink to="/login" className="router" activeClassName="selected">
                     Login
-                  </Link>
-                  <Link to="/signup" className="router">
+                  </NavLink>
+                  <NavLink to="/signup" className="router" activeClassName="selected">
                     Sign up
-                  </Link>
+                  </NavLink>
                 </>
               )
               : (
