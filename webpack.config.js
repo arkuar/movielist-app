@@ -32,6 +32,11 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, 'build/dist'),
       publicPath: '/'
     },
+    optimization: {
+     splitChunks: {
+       chunks: 'all',
+     },
+   },
     module: {
       rules: [
         {

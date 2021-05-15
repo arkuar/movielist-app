@@ -10,7 +10,7 @@ const countAverage = (arr: Review[]) => {
   if (Number.isNaN(value)) {
     return 'N/A';
   }
-  return value;
+  return Math.round(value * 10) / 10;
 };
 
 const MovieStats: React.FC<MovieStatsProps> = ({ reviews }) => (
