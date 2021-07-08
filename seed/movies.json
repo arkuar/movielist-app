@@ -1,144 +1,145 @@
-[{
-	"_id":"609fd3400607f82d886ee384",
-	"starring": [
-		"Marlon Brando",
-		"Al Pacino",
-		"James Caan",
-		"Richard S. Castellano"
-	],
-	"reviews": [
-		"609fd7697380b51a6c57b9c9"
-	],
-	"genres": [
-		"Crime",
-		"Drama"
-	],
-	"title": "The Godfather",
-	"year": 1972,
-	"director": "Francis Ford Coppola",
-	"imdbId": "tt0068646",
-	"plot": "An organized crime dynasty's aging patriarch transfers control of his clandestine empire to his reluctant son.",
-	"poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-	"__v": 2
-},
-{
-	"_id": "609fd3400607f82d886ee385",
-	"starring": [
-		"Christian Bale",
-		"Heath Ledger",
-		"Aaron Eckhart",
-		"Michael Caine"
-	],
-	"reviews": [
-		"609fd6e67380b51a6c57b9c7"
-	],
-	"genres": [
-		"Action",
-		"Crime",
-		"Drama",
-		"Thriller"
-	],
-	"title": "The Dark Knight",
-	"year": 2008,
-	"director": "Christopher Nolan",
-	"imdbId": "tt0468569",
-	"plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-	"poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
-	"__v": 1
-},
-{
-	"_id":"609fd3400607f82d886ee386",
-	"starring": [
-		"Tim Roth",
-		"Amanda Plummer",
-		"Laura Lovelace",
-		"John Travolta"
-	],
-	"reviews": [
-		"609fd7417380b51a6c57b9c8"
-	],
-	"genres": [
-		"Crime",
-		"Drama"
-	],
-	"title": "Pulp Fiction",
-	"year": 1994,
-	"director": "Quentin Tarantino",
-	"imdbId": "tt0110912",
-	"plot": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
-	"poster": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-	"__v": 1
-},
-{
-	"_id": "609fd8417380b51a6c57b9ca",
-	"starring": [
-		"Al Pacino",
-		" Johnny Depp",
-		" Michael Madsen",
-		" Bruno Kirby"
-	],
-	"reviews": [
-		"609fd8417380b51a6c57b9cb"
-	],
-	"genres": [
-		"Biography",
-		" Crime",
-		" Drama"
-	],
-	"title": "Donnie Brasco",
-	"year": 1997,
-	"imdbId": "tt0119008",
-	"poster": "https://m.media-amazon.com/images/M/MV5BYzMzMDZkYWEtODIzNS00YjI3LTkxNTktOWEyZGM3ZWI2MWM4XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-	"director": "Mike Newell",
-	"plot": "An FBI undercover agent infiltrates the mob and finds himself identifying more with the mafia life, at the expense of his regular one.",
-	"__v": 1
-},
-{
-	"_id": "609fd85f7380b51a6c57b9cc",
-	"starring": [
-		"Johnny Depp",
-		" Frank Langella",
-		" Lena Olin",
-		" Emmanuelle Seigner"
-	],
-	"reviews": [
-		"609fd85f7380b51a6c57b9cd",
-		"609fd89c7380b51a6c57b9ce"
-	],
-	"genres": [
-		"Mystery",
-		" Thriller"
-	],
-	"title": "The Ninth Gate",
-	"year": 1999,
-	"imdbId": "tt0142688",
-	"poster": "https://m.media-amazon.com/images/M/MV5BM2Q1ZTFhMmYtNDljMS00Y2ZhLWE3M2QtMjYwYmFkYmJmMjI1XkEyXkFqcGdeQXVyNjU0NTI0Nw@@._V1_SX300.jpg",
-	"director": "Roman Polanski",
-	"plot": "A rare book dealer, while seeking out the last two copies of a demon text, gets drawn into a conspiracy with supernatural overtones.",
-	"__v": 2
-},
-{
-	"_id":"60a0531663830c001577c062",
-	"starring": [
-		"Jodie Foster",
-		" Lawrence A. Bonney",
-		" Kasi Lemmons",
-		" Lawrence T. Wrentz"
-	],
-	"reviews": [
-		"60a0531663830c001577c063"
-	],
-	"genres": [
-		"Crime",
-		" Drama",
-		" Thriller"
-	],
-	"title": "The Silence of the Lambs",
-	"year": 1991,
-	"imdbId": "tt0102926",
-	"poster": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-	"director": "Jonathan Demme",
-	"plot": "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
-	"__v": 1
-}]
-
+[
+  {
+    "_id": "609fd3400607f82d886ee384",
+    "starring": [
+      "Marlon Brando",
+      "Al Pacino",
+      "James Caan",
+      "Richard S. Castellano"
+    ],
+    "reviews": [
+      "609fd7697380b51a6c57b9c9"
+    ],
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "title": "The Godfather",
+    "year": 1972,
+    "director": "Francis Ford Coppola",
+    "imdbId": "tt0068646",
+    "plot": "An organized crime dynasty's aging patriarch transfers control of his clandestine empire to his reluctant son.",
+    "poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "__v": 2
+  },
+  {
+    "_id": "609fd3400607f82d886ee385",
+    "starring": [
+      "Christian Bale",
+      "Heath Ledger",
+      "Aaron Eckhart",
+      "Michael Caine"
+    ],
+    "reviews": [
+      "609fd6e67380b51a6c57b9c7"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "title": "The Dark Knight",
+    "year": 2008,
+    "director": "Christopher Nolan",
+    "imdbId": "tt0468569",
+    "plot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
+    "__v": 1
+  },
+  {
+    "_id": "609fd3400607f82d886ee386",
+    "starring": [
+      "Tim Roth",
+      "Amanda Plummer",
+      "Laura Lovelace",
+      "John Travolta"
+    ],
+    "reviews": [
+      "609fd7417380b51a6c57b9c8"
+    ],
+    "genres": [
+      "Crime",
+      "Drama"
+    ],
+    "title": "Pulp Fiction",
+    "year": 1994,
+    "director": "Quentin Tarantino",
+    "imdbId": "tt0110912",
+    "plot": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "__v": 1
+  },
+  {
+    "_id": "609fd8417380b51a6c57b9ca",
+    "starring": [
+      "Al Pacino",
+      " Johnny Depp",
+      " Michael Madsen",
+      " Bruno Kirby"
+    ],
+    "reviews": [
+      "609fd8417380b51a6c57b9cb"
+    ],
+    "genres": [
+      "Biography",
+      " Crime",
+      " Drama"
+    ],
+    "title": "Donnie Brasco",
+    "year": 1997,
+    "imdbId": "tt0119008",
+    "poster": "https://m.media-amazon.com/images/M/MV5BYzMzMDZkYWEtODIzNS00YjI3LTkxNTktOWEyZGM3ZWI2MWM4XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+    "director": "Mike Newell",
+    "plot": "An FBI undercover agent infiltrates the mob and finds himself identifying more with the mafia life, at the expense of his regular one.",
+    "__v": 1
+  },
+  {
+    "_id": "609fd85f7380b51a6c57b9cc",
+    "starring": [
+      "Johnny Depp",
+      " Frank Langella",
+      " Lena Olin",
+      " Emmanuelle Seigner"
+    ],
+    "reviews": [
+      "609fd85f7380b51a6c57b9cd",
+      "609fd89c7380b51a6c57b9ce"
+    ],
+    "genres": [
+      "Mystery",
+      " Thriller"
+    ],
+    "title": "The Ninth Gate",
+    "year": 1999,
+    "imdbId": "tt0142688",
+    "poster": "https://m.media-amazon.com/images/M/MV5BM2Q1ZTFhMmYtNDljMS00Y2ZhLWE3M2QtMjYwYmFkYmJmMjI1XkEyXkFqcGdeQXVyNjU0NTI0Nw@@._V1_SX300.jpg",
+    "director": "Roman Polanski",
+    "plot": "A rare book dealer, while seeking out the last two copies of a demon text, gets drawn into a conspiracy with supernatural overtones.",
+    "__v": 2
+  },
+  {
+    "_id": "60a0531663830c001577c062",
+    "starring": [
+      "Jodie Foster",
+      " Lawrence A. Bonney",
+      " Kasi Lemmons",
+      " Lawrence T. Wrentz"
+    ],
+    "reviews": [
+      "60a0531663830c001577c063"
+    ],
+    "genres": [
+      "Crime",
+      " Drama",
+      " Thriller"
+    ],
+    "title": "The Silence of the Lambs",
+    "year": 1991,
+    "imdbId": "tt0102926",
+    "poster": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "director": "Jonathan Demme",
+    "plot": "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
+    "__v": 1
+  }
+]

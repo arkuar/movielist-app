@@ -3,8 +3,8 @@ import movies from './movies.json';
 
 const createMovies = async (): Promise<void> => {
   await Movie.deleteMany();
-  const insertManyResult = await Movie.collection.insertMany(movies);
-  console.log(`${insertManyResult.insertedCount} movie documents inserted`);
+  const insertManyResult = await Movie.create(movies);
+  console.log(`${insertManyResult.length} movie documents inserted`);
 };
 
 export default createMovies;
