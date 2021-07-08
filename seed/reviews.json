@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "609fd6e67380b51a6c57b9c7",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla nisl, facilisis ut elit non, gravida rutrum ligula. In ultricies urna a magna ullamcorper bibendum. Etiam sagittis condimentum eros et placerat. Nulla facilisi. Nulla purus sem, commodo sit amet eros aliquam, tincidunt cursus urna. Duis non risus id eros egestas egestas a non eros. Proin eget fermentum ligula, vitae sodales justo. Nullam id rhoncus risus. Nulla dictum maximus purus ac vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n\nFusce faucibus nibh tortor, in sodales tellus blandit quis. Quisque ac massa tempus, mollis augue et, feugiat ipsum. Etiam dapibus malesuada mattis. Curabitur cursus, mauris non dignissim ullamcorper, felis erat laoreet lacus, in auctor urna felis quis ex. Integer mattis nisi nec libero congue, ac efficitur urna aliquet. Nam non purus eu est ultricies vehicula. Proin dictum fringilla sagittis. Fusce molestie justo eget est vulputate, vitae sollicitudin arcu tincidunt. Nunc purus ante, pretium sed lacus eget, pretium ornare quam. Phasellus eu semper nisi. In blandit egestas auctor. Nam vestibulum, purus interdum maximus feugiat, ipsum urna condimentum nisi, id ultricies libero ligula vel turpis. Nam viverra facilisis quam non cursus. Fusce at orci tristique, varius sem eu, iaculis ante. Aliquam in nisl lectus. Morbi ut malesuada neque.",
+    "rating": 9,
+    "user": "609fd3400607f82d886ee382",
+    "movie": "609fd3400607f82d886ee385",
+    "__v": 0
+  },
+  {
+    "_id": "609fd7417380b51a6c57b9c8",
+    "text": "Just an incredible film that deserves more than 10 stars!",
+    "rating": 10,
+    "user": "609fd3400607f82d886ee382",
+    "movie": "609fd3400607f82d886ee386",
+    "__v": 0
+  },
+  {
+    "_id": "609fd7697380b51a6c57b9c9",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec pharetra lectus. Sed ac tortor eu mi maximus aliquam ac nec sem. Duis ut laoreet odio, commodo commodo dui. Donec mollis vel libero sit amet accumsan. Nam id nulla at nisl tristique venenatis. In interdum, tellus eu vulputate scelerisque, massa dolor laoreet mauris, ac dapibus diam ipsum ut magna. Nam semper, tellus vitae imperdiet blandit, ipsum est efficitur magna, ut volutpat arcu orci vitae sapien. Sed eu tortor aliquam lacus vehicula consectetur nec id dolor. Proin vitae massa erat.",
+    "rating": 6,
+    "user": "609fd3400607f82d886ee381",
+    "movie": "609fd3400607f82d886ee384",
+    "__v": 0
+  },
+  {
+    "_id": "609fd8417380b51a6c57b9cb",
+    "text": "Fuggetaboutit!",
+    "rating": 7,
+    "user": "609fd3400607f82d886ee381",
+    "movie": "609fd8417380b51a6c57b9ca",
+    "__v": 0
+  },
+  {
+    "_id": "609fd85f7380b51a6c57b9cd",
+    "text": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam viverra venenatis augue in faucibus. Proin tempus non dui non facilisis. Mauris mattis tempor gravida. Maecenas vitae quam libero. Suspendisse congue aliquam felis, et auctor sem semper nec. In tempor nulla sapien, id lobortis ante cursus et. Nulla facilisi. Sed felis quam, euismod vel magna ut, facilisis tempus ligula. Duis urna odio, mollis quis laoreet in, pulvinar vel velit. In ut odio at est pretium porta. Etiam sagittis sem eu dui pulvinar, quis pellentesque lectus luctus. Maecenas est est, tempor sit amet faucibus ac, pharetra et nisl. Duis bibendum mauris et condimentum suscipit. Sed id lacinia orci. Proin ante augue, tristique at dignissim quis, cursus ut est.\n\nVestibulum tincidunt lacinia tincidunt. Duis ut vestibulum odio. Fusce a libero quis risus cursus pretium. Vestibulum dapibus odio eu lorem dictum, vitae consectetur augue lacinia. Fusce nec massa nec neque hendrerit lacinia. Aliquam at lacus eros. Pellentesque finibus sapien neque, eu mattis ex blandit in.\n\nQuisque arcu est, varius at magna quis, consectetur sagittis augue. Nunc quam lorem, ultrices vel felis at, dignissim porttitor magna. Vestibulum aliquam lorem ipsum, non interdum eros sodales ut. Proin eget commodo dui. Nunc nec sodales metus. Nulla nec quam urna. Vestibulum a lacinia dui, in interdum augue. Nunc vestibulum maximus scelerisque. Aenean elit risus, placerat et eros eget, pellentesque porta dolor. Praesent ut elementum nisl, eget suscipit tortor. Vivamus finibus sodales neque vel euismod. Integer a scelerisque metus.",
+    "rating": 7,
+    "user": "609fd3400607f82d886ee381",
+    "movie": "609fd85f7380b51a6c57b9cc",
+    "__v": 0
+  },
+  {
+    "_id": "609fd89c7380b51a6c57b9ce",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et dolor nunc. Vivamus justo est, lacinia non convallis at, blandit et erat. Nulla odio lorem, finibus nec placerat sit amet, egestas non ligula. Etiam fringilla condimentum augue, et pharetra eros porta vitae. Aenean varius justo sem, et elementum eros placerat quis. Pellentesque consequat ipsum eget mi auctor dictum. Phasellus a quam risus. Duis auctor molestie volutpat. Phasellus eu dui a ex consectetur tempus. Aliquam aliquet justo dictum quam tempus fermentum. Pellentesque eu diam nisl. Quisque condimentum vehicula ante, et molestie sem. Mauris porta lacus sit amet libero gravida, at pulvinar justo consequat. In et semper magna, eu fermentum arcu. Morbi pretium neque metus, nec vestibulum mauris ullamcorper molestie. Aliquam nibh odio, tempus vitae nulla eu, tristique molestie ligula.\n\nCurabitur commodo mauris sollicitudin, interdum arcu a, convallis mauris. Nunc fermentum id elit ac pellentesque. Praesent non libero orci. Maecenas a nulla sodales, posuere nunc non, vulputate dolor. Suspendisse mattis velit vitae rhoncus cursus. Cras ut vestibulum lectus, sed maximus dui. Ut ac rutrum quam, quis blandit ante. Sed ornare libero tortor, non porta sapien dapibus et. Fusce iaculis tristique lacus, eu rutrum ipsum. Maecenas aliquam, sapien ac rhoncus pretium, nisl nulla ultricies nunc, in vehicula ex dui auctor nunc.\n\nOrci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus maximus eleifend tincidunt. Mauris mi massa, volutpat ut lacus ac, euismod dictum enim. In mollis enim turpis, sed laoreet mauris varius at. Nullam consectetur porttitor auctor. Donec commodo porta leo, eu posuere felis convallis a. Donec non nunc purus. Morbi tempus venenatis vehicula.\n\nMauris ut quam lobortis, tempus massa nec, dapibus nisl. Nulla in nisi tincidunt, rutrum enim ut, venenatis tellus. Maecenas a efficitur nunc, nec sollicitudin quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet lorem et iaculis venenatis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean ac ex arcu. Quisque ullamcorper nunc quis arcu tempus tristique. Quisque ultricies porttitor pellentesque. Proin pretium, velit ut bibendum volutpat, erat nisi semper quam, ac porttitor lacus dolor quis nulla. Cras sagittis sagittis pulvinar.\n\nVestibulum et est non nibh volutpat pretium in sed quam. Ut feugiat urna eu enim vestibulum, ut tempor odio feugiat. Pellentesque molestie mollis libero id lacinia. Etiam commodo risus ac metus sodales, quis condimentum ligula faucibus. Curabitur ligula massa, pretium quis risus nec, tristique pharetra mi. Quisque at risus vel nibh aliquam luctus vel ac dui. Fusce aliquam sapien eget nunc pulvinar consequat. Proin a felis eget velit ultrices ultrices et in lorem. Integer sit amet lorem libero. Fusce et felis luctus, mollis odio sed, mollis magna. Maecenas metus purus, laoreet sed fermentum in, malesuada eu libero.",
+    "rating": 6,
+    "user": "609fd3400607f82d886ee383",
+    "movie": "609fd85f7380b51a6c57b9cc",
+    "__v": 0
+  },
+  {
+    "_id": "60a0531663830c001577c063",
+    "text": "Great thriller!",
+    "rating": 9,
+    "user": "609fd3400607f82d886ee382",
+    "movie": "60a0531663830c001577c062",
+    "__v": 0
+  }
+]

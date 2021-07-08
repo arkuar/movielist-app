@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "609fd3400607f82d886ee381",
+    "username": "Matt1",
+    "passwordHash": "$2b$10$smBwENwuHdCtyPyJHjqljuJkvDm3NyDv0oJidPP6gvbPJHORfh3mq",
+    "__v": 0
+  },
+  {
+    "_id": "609fd3400607f82d886ee382",
+    "username": "Pekka",
+    "passwordHash": "$2b$10$smBwENwuHdCtyPyJHjqljuJkvDm3NyDv0oJidPP6gvbPJHORfh3mq",
+    "__v": 0
+  },
+  {
+    "_id": "609fd3400607f82d886ee383",
+    "username": "Mike",
+    "passwordHash": "$2b$10$smBwENwuHdCtyPyJHjqljuJkvDm3NyDv0oJidPP6gvbPJHORfh3mq",
+    "__v": 0
+  },
+  {
+    "_id": "609fe772d7958400150f4081",
+    "username": "Sam",
+    "passwordHash": "$2b$10$eGPDRWyhxtij90kyUSCN8efdAHiJdrFCRvFL4xZtiscrgMtRFD6Fe",
+    "__v": 0
+  }
+]
