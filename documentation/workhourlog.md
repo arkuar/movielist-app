@@ -28,4 +28,4 @@
 |14.5|7.5|Add service to frontend for handling review deletion. Refactor state handling for movie to use useReducer hook. Create functionality for delete button. Add confirmation dialog.
 |15.5|5|Refactor Dialog control to separate DialogProvider. Style navbar to fit mobile screens. Deploy to heroku
 |8.7|2.5|Refactor seed files. Add posters to movie list page. Add README
-| total | 88.5 | |
+| total | 91 | |
