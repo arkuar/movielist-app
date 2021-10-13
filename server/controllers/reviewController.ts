@@ -83,7 +83,19 @@ const deleteReview = async (req: Request, res: Response, next: NextFunction) => 
   }
 };
 
+const getUserReviews = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { id } = AuthService.verifyToken(req.token);
+
+    const reviews = await Review.find({ user: id }).populate('movie').populate('user');
+    return res.json(reviews);
+  } catch (error) {
+    return next(error);
+  }
+};
+
 export {
   createReview,
   deleteReview,
+  getUserReviews,
 };
