@@ -1,6 +1,6 @@
 import { Review } from '@common/types';
-import ReviewList from 'client/ReviewList/ReviewList';
 import React, { useEffect, useState } from 'react';
+import ReviewList from '../ReviewList/ReviewList';
 import reviewService from '../util/services/reviews';
 
 const UserReviewList: React.FC = () => {
