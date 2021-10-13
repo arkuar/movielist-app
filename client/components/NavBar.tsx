@@ -6,22 +6,27 @@ import { NavLink } from 'react-router-dom';
 import useAuth from '../util/hooks/useAuth';
 import { clearUser } from '../util/reducers';
 
-const routes: Route[] = [
-  {
-    title: 'Movie list',
-    authRequired: false,
-    path: '/',
-    exact: true,
-  },
-  {
-    title: 'Create review',
-    authRequired: true,
-    path: '/createreview',
-  },
-];
-
 const NavBar: React.FC = () => {
   const [{ username }, dispatch] = useAuth();
+
+  const routes: Route[] = [
+    {
+      title: 'Movie list',
+      authRequired: false,
+      path: '/',
+      exact: true,
+    },
+    {
+      title: 'Create review',
+      authRequired: true,
+      path: '/createreview',
+    },
+    {
+      title: 'My reviews',
+      authRequired: true,
+      path: `/reviews/${username}`,
+    },
+  ];
 
   const logOut = () => {
     dispatch(clearUser());

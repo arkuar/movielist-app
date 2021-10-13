@@ -6,6 +6,7 @@ import Login from '../LoginPage/Login';
 import SignUp from '../SignUpPage/SignUp';
 import useAuth from '../util/hooks/useAuth';
 import AddReviewForm from '../AddReviewPage/AddReviewForm';
+import UserReviewList from '../UserReviewPage/UserReviewList';
 
 const Router: React.FC = () => {
   const [{ username }] = useAuth();
@@ -31,6 +32,11 @@ const Router: React.FC = () => {
       <Route path="/createreview">
         {username
           ? <AddReviewForm />
+          : <Redirect to="/" />}
+      </Route>
+      <Route path="/reviews/:id">
+        {username
+          ? <UserReviewList />
           : <Redirect to="/" />}
       </Route>
     </Switch>
