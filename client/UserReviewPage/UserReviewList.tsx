@@ -33,7 +33,7 @@ const UserReviewList: React.FC = () => {
     }
   };
 
-  return <ReviewList reviews={reviews} onDeleteClick={onDeleteClick} />;
+  return <ReviewList reviews={reviews} onDeleteClick={onDeleteClick} showMovieInfo />;
 };
 
 export default UserReviewList;
