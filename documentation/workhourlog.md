@@ -29,4 +29,4 @@
 |15.5|5|Refactor Dialog control to separate DialogProvider. Style navbar to fit mobile screens. Deploy to heroku
 |8.7|2.5|Refactor seed files. Add posters to movie list page. Add README
 |13.10|2.5|Add UserReviewList component showing user's reviews. Add backend functionality for it. Add movie button to ReviewList component that navigates user to the movie page
-| total | 91 | |
+| total | 93.5 | |
