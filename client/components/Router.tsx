@@ -34,7 +34,7 @@ const Router: React.FC = () => {
           ? <AddReviewForm />
           : <Redirect to="/" />}
       </Route>
-      <Route path="/reviews/:id">
+      <Route path="/reviews">
         {username
           ? <UserReviewList />
           : <Redirect to="/" />}
