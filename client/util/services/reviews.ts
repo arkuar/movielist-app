@@ -12,7 +12,13 @@ const deleteReview = async (id: string): Promise<void> => {
   await axios.delete(`${baseUrl}/${id}`);
 };
 
+const getUserReviews = async (): Promise<Review[]> => {
+  const response = await axios.get(baseUrl);
+  return response.data;
+};
+
 export default {
   createReview,
   deleteReview,
+  getUserReviews,
 };
