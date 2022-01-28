@@ -4,7 +4,7 @@ import Movie from '../models/movie';
 import AuthService from '../util/AuthService';
 
 const getMovies = async (_req: Request, res: Response): Promise<void> => {
-  const movies = await Movie.find({});
+  const movies = await Movie.find({}).populate('reviews', 'rating');
   res.json(movies);
 };
 
