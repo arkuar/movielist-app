@@ -7,6 +7,7 @@ import {
   initialMovies, initialUser, movieFromOMDB, moviesInDb,
 } from './helper';
 import { agent as supertest } from 'supertest';
+import ReviewModel from '../server/models/review';
 import app = require('../app');
 
 const api = supertest(app);
@@ -21,6 +22,8 @@ describe('POST /api/reviews', () => {
     await Movie.deleteMany();
     const movies = await Movie.create(initialMovies);
     existingMovieId = movies[0].imdbId;
+
+    await ReviewModel.deleteMany();
   });
 
   describe('with existing user', () => {
