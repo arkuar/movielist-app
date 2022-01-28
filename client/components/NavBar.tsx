@@ -2,7 +2,7 @@ import { Route } from '@common/types';
 import { Menu, Transition } from '@headlessui/react';
 import { MenuIcon } from '@heroicons/react/outline';
 import React, { Fragment } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import useAuth from '../util/hooks/useAuth';
 import { clearUser } from '../util/reducers';
 
@@ -27,6 +27,7 @@ const routes: Route[] = [
 
 const NavBar: React.FC = () => {
   const [{ username }, dispatch] = useAuth();
+  const location = useLocation();
 
   const logOut = () => {
     dispatch(clearUser());
@@ -39,6 +40,8 @@ const NavBar: React.FC = () => {
     }
     return null;
   });
+
+  const currentPath = routes.find((r) => r.path === location.pathname);
 
   return (
     <div className="bg-gray-700">
@@ -60,7 +63,7 @@ const NavBar: React.FC = () => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95 translate-y-2"
               >
-                <Menu.Items className="absolute left-0 w-56 mt-2 bg-gray-700 rounded-md shadow-lg ring-2 ring-black ring-opacity-5 focus:outline-none">
+                <Menu.Items className="z-50 absolute left-0 w-56 mt-2 bg-gray-700 rounded-md shadow-lg ring-2 ring-black ring-opacity-5 focus:outline-none">
                   <div className="p-2 space-y-1 text-gray-800">
                     {buildRoutes().map((item) => (
                       item && (
@@ -78,6 +81,9 @@ const NavBar: React.FC = () => {
             <div className="flex space-x-4">
               {buildRoutes()}
             </div>
+          </div>
+          <div className="flex text-white sm:hidden font-semibold">
+            <h2>{currentPath?.title}</h2>
           </div>
           <div className="flex-1 flex items-center justify-end">
             {!username
