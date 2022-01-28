@@ -6,6 +6,7 @@ import {
   SchemaOf, object, string, number,
 } from 'yup';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import FormContainer from '../components/FormContainer';
 import TextInput from '../components/TextInput';
 import SubmitButton from '../components/SubmitButton';
@@ -40,8 +41,10 @@ const AddReviewForm: React.FC = () => {
       const review = await reviewsService.createReview(values);
       history.push(`/movies/${review.movie}`);
     } catch (err) {
-      const { error: message } = err.response.data;
-      error(message);
+      if (axios.isAxiosError(err)) {
+        const { error: message } = err.response?.data;
+        error(message);
+      }
     }
   };
 

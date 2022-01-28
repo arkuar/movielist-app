@@ -1,5 +1,6 @@
 import { Review } from '@common/types';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import ReviewList from '../ReviewList/ReviewList';
 import reviewService from '../util/services/reviews';
 import useDialog from '../util/hooks/useDialog';
@@ -28,8 +29,10 @@ const UserReviewList: React.FC = () => {
       setReviews(reviews.filter((r) => r.id !== reviewId));
       success('Review deleted succesfully!');
     } catch (err) {
-      const { error: message } = err.response.data;
-      error(message);
+      if (axios.isAxiosError(err)) {
+        const { error: message } = err.response?.data;
+        error(message);
+      }
     }
   };
 

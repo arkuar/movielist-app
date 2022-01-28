@@ -1,4 +1,4 @@
-import { PostReview } from '@common/types';
+import { PostReview, Review } from '@common/types';
 import Movie from '../server/models/movie';
 import User from '../server/models/user';
 import { connection } from 'mongoose';
@@ -102,6 +102,31 @@ describe('POST /api/reviews', () => {
         .expect(400);
       expect(error).toContain('Must be at least 5 characters long');
     });
+    describe('should succesfully show reviews made by the user', () => {
+      test('when the user has not made any reviews', async () => {
+        const res = await api.get(baseUrl);
+        expect(res.body).toHaveLength(0);
+      });
+
+      test('when the user has made reviews', async () => {
+        const review: PostReview = {
+          movieId: existingMovieId,
+          rating: 9,
+          text: 'Great movie!',
+        };
+        await api.post(baseUrl)
+          .send(review)
+          .expect(201);
+
+        const { body } = await api.get(baseUrl);
+        expect(body).toHaveLength(1);
+
+        const fetchedReview = body[0] as Review;
+        expect(fetchedReview.movie.imdbId).toEqual(existingMovieId);
+        expect(fetchedReview.rating).toEqual(review.rating);
+        expect(fetchedReview.text).toEqual(review.text);
+      });
+    });
   });
 
   test('should return error if token is invalid', async () => {
@@ -127,5 +152,6 @@ describe('POST /api/reviews', () => {
 
   afterAll(async () => {
     connection.close();
+    await new Promise<void>((resolve) => setTimeout(() => resolve(), 500));
   });
 });
