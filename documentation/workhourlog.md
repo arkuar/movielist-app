@@ -2,6 +2,7 @@
 
 | Day | Time | What was done |
 |:---:|:-----|:-------------|
+|**2021**|
 |24.3 | 4    | Initialize the project backend. Study how typescript works with webpack
 |25.3| 3.5 |  Add separate configurations to client and server. Add webpack
 |31.3 | 5 | Add first components. Initialize tailwind. Add route for movies.
@@ -29,5 +30,8 @@
 |15.5|5|Refactor Dialog control to separate DialogProvider. Style navbar to fit mobile screens. Deploy to heroku
 |8.7|2.5|Refactor seed files. Add posters to movie list page. Add README
 |13.10|2.5|Add UserReviewList component showing user's reviews. Add backend functionality for it. Add movie button to ReviewList component that navigates user to the movie page
+|**2022**|
 |28.1|2|More tests for reviews. Add more information to the movie listing page and show current page in navbar when using smaller screens
-| total | 95.5 | |
+|26.2|0.25|Add .env.example file and expand installation instructions
+|5.3|1.5|Add usage instructions. Fix styling. Fix a bug where headers were not set early enough.
+| total | 97.25 | |
