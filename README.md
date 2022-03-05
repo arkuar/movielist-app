@@ -2,8 +2,12 @@
 
 App for reviewing movies. Review movies you have seen and see what other people thought about them.
 
+[Link to the app](https://arkuar-movielist.herokuapp.com/)
+
 ## Documentation
 [Work hour log](documentation/workhourlog.md)
+
+[How to use](documentation/usage.md)
 
 ## Installing
 - Clone the repo to your own machine with `git clone git@github.com:arkuar/movielist-app.git`

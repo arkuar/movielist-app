@@ -16,18 +16,20 @@ const ReviewList: React.FC<ReviewListProps> = ({ reviews, showMovieInfo, onDelet
   const history = useHistory();
   const [{ username }] = useAuth();
 
-  if (reviews.length === 0) {
-    return null;
-  }
-
   const viewMoviePage = (movieId: string) => history.push(`/movies/${movieId}`);
 
   return (
     <div className="my-5 md:m-5">
       <h2 className="font-semibold text-xl ml-5">Reviews</h2>
+      {reviews.length === 0 && <h3 className="ml-5">No reviews</h3>}
       {reviews.map((r) => (
         <ReviewItemContainer key={r.id}>
-          <ReviewItem review={r} />
+          <div className="flex-col">
+            <span className="text-gray-500">
+              {r.movie.title}
+            </span>
+            <ReviewItem review={r} />
+          </div>
           <div className="md:ml-auto items-stretch flex flex-col flex-shrink-0">
             {showMovieInfo && (
               <button onClick={() => viewMoviePage(r.movie.id)} className="items-center border-2 mt-5 md:mt-0 md:ml-auto flex justify-center bg-blue-400 hover:bg-blue-500 p-3 rounded-xl text-white font-medium uppercase transition-colors" type="button">

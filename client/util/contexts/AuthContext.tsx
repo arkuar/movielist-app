@@ -15,6 +15,8 @@ const token = currentUser
   ? JSON.parse(currentUser).token
   : undefined;
 
+setAuthHeader(token);
+
 const initialState: AuthState = {
   username,
   token,
