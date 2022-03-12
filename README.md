@@ -40,7 +40,7 @@ You can run the tests with the command `npm test`.
 Running command `npm run lint` will check the linting
 
 ### Populating database
-If you need to populate database with some initial data you can run comman `npm run seed` which adds some users and movies to the database. This does not add any reviews though so you have to add them yourself.
+If you need to populate database with some initial data you can run command `npm run seed`.
 
 
 
